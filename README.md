@@ -21,7 +21,7 @@
 
 ## Overview
 
-_**Project Title** is lorem ipsum dolor sit amet. Phasellus dapibus fermentum risus vitae bibendum. Integer vel ipsum mollis odio sollicitudin ornare eu vel ex. In quis fringilla velit, ac maximus quam. Etiam eget placerat neque. Aenean faucibus sem non nisi lobortis ullamcorper._
+WhenIEat is an easy to use nutrition/calorie tracker app, allowing a user to keep track of their daily caloric intake.
 
 
 <br>
@@ -64,29 +64,37 @@ _The **Project Title** MVP lorem ipsum dolor sit amet, consectetur adipiscing el
 
 > Use the Wireframes section to display desktop, tablet and mobile views. No hand-drawn wireframes. Use a tool like wireframe.cc, Whimsical or AdobeXD
 
-![Dummy Link](url)
+https://i.imgur.com/rcDCLYE.png
 
 - Desktop Landing
 
-![Dummy Link](url)
+https://i.imgur.com/4JV2Nwz.png
 
-- Desktop Hero
+- Desktop Landing - Sign Up Model
 
-![Dummy Link](url)
+https://i.imgur.com/qYFi138.png
 
-- Resource Index
+- Desktop Landing - More Info Model
 
-![Dummy Link](url)
+https://i.imgur.com/FEAJkqz.png
 
-- Resource Show
+- Desktop - Home Page
 
-![Dummy Link](url)
+https://i.imgur.com/D31KtXQ.png
 
-- Tablet Resource Index
+- Desktop - Home Page - Add Item Model
 
-![Dummy Link](url)
+https://i.imgur.com/AfWYwYn.png
 
-- Mobile Resource Index
+- Desktop - Account Page
+
+https://i.imgur.com/D1qcdYg.png
+
+- Desktop - Account Page - Delete Model
+
+https://i.imgur.com/YUfFKkr.png
+
+- Desktop - Stats Page
 
 #### Component Tree
 
