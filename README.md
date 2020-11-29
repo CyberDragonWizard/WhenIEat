@@ -57,17 +57,17 @@ WhenIEat is an easy to use nutrition/calorie tracker app, allowing a user to kee
 
 ### Goals
 
-- _Lorem ipsum, dolor sit amet,_
-- _consectetur adipiscing elit._
-- _Phasellus dapibus fermentum risus vitae bibendum._
-- _Integer vel ipsum mollis odio sollicitudin ornare eu vel ex._
-- _etc._
+- Create a function full stack app.
+- Implement Ruby on Rails.
+- Implement ReactJS.
+- Use profession and modern styling.
+- Implement both internal and external API.
 
 <br>
 
 ### Libraries and Dependencies
 
-> Use this section to list all supporting libraries and dependencies, and their role in the project. Below is an example - this needs to be replaced!
+
 
 |     Library      | Description                                |
 | :--------------: | :----------------------------------------- |
@@ -123,7 +123,7 @@ https://whimsical.com/G3ZFVJNSxGVWYN92iueUK6
 
 #### Component Hierarchy
 
-> Use this section to define your React components and the data architecture of your app. This should be a reflection of how you expect your directory/file tree to look like. 
+
 
 ``` structure
 
@@ -134,8 +134,20 @@ src
       |__ images
       |__ mockups
 |__ components/
-      |__ Header.jsx
+      |__ SignUp.jsx
+      |__ UserInfo.jsx
+      |__ MealTable.jsx
+      |__ AddMealTable.jsx
+      |__ AccountForm.jsx
+      |__ DeleteModel.jsx
+      |__ DeleteButton.jsx
+      |__ LogoutButton.jsx
+      |__ CancelForm.jsx
 |__ shared/
+      |__Layout.jsx
+      |__Nav.jsx
+      |__Header.jsx
+      
 
 ```
 
