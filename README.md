@@ -28,9 +28,28 @@ WhenIEat is an easy to use nutrition/calorie tracker app, allowing a user to kee
 
 ## MVP
 
-> The Minimum Viable Product should be a well-planned, easily-communicated product, ensuring that the client's deliverable will be achievable and meet specifications within the time frame estimated.
-
-_The **Project Title** MVP lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dapibus fermentum risus vitae bibendum. Integer vel ipsum mollis odio sollicitudin ornare eu vel ex. In quis fringilla velit, ac maximus quam. Etiam eget placerat neque. Aenean faucibus sem non nisi lobortis ullamcorper._
+Server (Back End)
+Have a RESTful JSON API.
+Build a Ruby on Rails server, exposing RESTful JSON endpoints.
+Build a database with at least 3 tables:
+There must be at least 1 association between your tables. (1:m or m:m)
+Utilize Rails to define models for interacting with the database.
+Implement working generic controller actions for Full CRUD (index, show, create, update, delete) between your non-User tables
+Note that if you choose to do Authentication, CRUD on your User table does not count toward this requirement.
+Client (Front End)
+Have a working, interactive React app, built using npx create-react-app.
+Have at least 8 separate, rendered components in an organized and understandable React file structure.
+Utilize functional and class React components appropriately.
+Utilize state and props in your components efficiently.
+Use only React for DOM Manipulation.
+Consume data from your Ruby on Rails API, and render that data in your components.
+Utilize React Router, for client-side routing.
+Demonstrate Full CRUD actions ( index, show, create, update, and delete ) on the front end.
+Note that if you decide to implement Auth, your full CRUD actions must be covered amongst your non-User tables.
+Styling
+Be styled with CSS (or SCSS, if you'd prefer).
+Use Flexbox or Grid in your layout design.
+Implement 2 media queries for responsive design on 3 screen sizes (including desktop).
 
 <br>
 
