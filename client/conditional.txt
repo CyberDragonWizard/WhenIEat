@@ -1,0 +1,4 @@
+@day = current_user.days.find_by(date: value)
+if !@day
+@day = Day.create()
+end
