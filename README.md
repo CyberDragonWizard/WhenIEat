@@ -188,6 +188,7 @@ https://i.imgur.com/hnyRse2.png
 
 - Make the app completely responsive
 - Create a fully funtional 'stats page'
+- Be able to upload profile image from local storage
 
 ***
 
