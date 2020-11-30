@@ -143,6 +143,11 @@ src
       |__ DeleteButton.jsx
       |__ LogoutButton.jsx
       |__ CancelForm.jsx
+|__ screens/
+      |__Login.jsx
+      |__Home.jsx
+      |__Account.jsx
+      |__Stats.jsx
 |__ shared/
       |__Layout.jsx
       |__Nav.jsx
