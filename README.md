@@ -77,7 +77,13 @@ WhenIEat is an easy to use nutrition/calorie tracker app, allowing a user to kee
 |      Rails       |               Ruby Framework.              |
 |    PostgresSQL   |   Relational database management system.   |
 |      Puma        |            A Ruby/Rack web server.         |
-|     bcrypt       | A password-hasing function for token based authentication.         |
+|     bcrypt       |   A password-hasing function.              |
+|      JWT         |  Json Web Token for token based authentication.         |
+|    Bootsnap      |    A Ruby library that reduces boot times. |
+|    Rack-Cors      |    For cross domain AJAX calls. |
+|    Byebug      |    A Rails debugger. |
+|    Listen      |    A Gem that listens to file modifications. |
+|    Spring      |    A Rails preloader application. |
 
 <br>
 
