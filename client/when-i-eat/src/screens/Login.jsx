@@ -17,9 +17,11 @@ function Login() {
                  <br/>
                  <input type='password' className='input' placeholder='Password'></input>
                  <br/>
+                 <div className='button-div'>
                  <NavLink to='/home'>
                     <button type='submit' className='button'>Log In</button>
                  </NavLink>
+                 </div>
              </form>
              <h3 className='welcome-message'>Or</h3>
              <button type='submit' className='button'>Sign Up</button>
