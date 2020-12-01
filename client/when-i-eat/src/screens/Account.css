@@ -52,6 +52,13 @@
     background-color: rgb(143, 0, 0);
 }
 
+.header-logo-home {
+    top: 0;
+    z-index: 1;
+    position: fixed;
+    left: 50px;
+}
+
 .logout-button {
     font-family: 'Montserrat', sans-serif;
     color: white;
