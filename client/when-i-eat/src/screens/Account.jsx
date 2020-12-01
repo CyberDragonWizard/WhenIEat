@@ -5,12 +5,13 @@ import Header from '../shared/Header';
 import LogoImg from '../Assets/logo.png';
 import Navbar from '../shared/Navbar';
 import ProfilePlaceholder from '../Assets/profile-placeholder.png'
+import { NavLink } from 'react-router-dom';
 
 function Account() {
     return (
         <div>
             <Header />
-            <img className='header-logo' src={LogoImg} alt='logo' height='110' width='110' />
+            <img className='header-logo-home' src={LogoImg} alt='logo' height='110' width='110' />
             <button type='submit' className='delete-button'>Delete Account</button>
             <div className='account-info'>
                 <h1 className='your-account'>Your Account</h1>
@@ -23,12 +24,12 @@ function Account() {
                  <br/>
                  <input type='text' className='account-input' placeholder='Weight'></input>
                  <button type='submit' className='save-button'>Save Changes</button>
-                 <button type='submit' className='logout-button'>Log Out</button>
+                 <NavLink to='/'>
+                    <button type='submit' className='logout-button'>Log Out</button>
+                 </NavLink>
             </div>
             <Navbar />
-            <div>
-                <HomeFooter /> 
-            </div>
+            <HomeFooter /> 
         </div>
     );
 }
