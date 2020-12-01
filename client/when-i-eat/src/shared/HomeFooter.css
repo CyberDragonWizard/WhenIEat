@@ -1,9 +1,9 @@
 
 .home-footer {
-    border-top: 2px solid rgb(199, 199, 199);
-    margin-top: 720px;
-    /* position: relative; */
-    /* max-width: 60%; */
-    margin-left: 350px;
-    margin-right: 140px;
+    position: fixed;
+    border-top: 2px solid rgb(218, 218, 218);
+    bottom: 50px;
+    left: 410px;
+    right: 200px;
+    margin-bottom: 0px;
 }

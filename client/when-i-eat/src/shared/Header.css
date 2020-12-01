@@ -1,8 +1,10 @@
 
 .header {
     background-color: #bbe7e9;
+    top: 0;
     height: 130px;
-    position: static;
+    position: fixed;
+    width: 100%;
     z-index: 1;
     box-shadow: 0px 0px 5px 0px #6d6d6d;
 }
