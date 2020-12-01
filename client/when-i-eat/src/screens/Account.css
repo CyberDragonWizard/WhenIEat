@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&display=swap');
+
+.delete-button {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    margin-top: 150px;
+    margin-right: 30px;
+    float: right;
+    height: 25px;
+    width: 130px;
+    color: white;
+    background-color: rgb(219, 2, 2);
+    border: none;
+    outline: none;
+    border-radius: 8px;
+}
+
+.delete-button:hover {
+    background-color: rgb(143, 0, 0);
+}
+
+.profile-placeholder {
+    margin-top: 100px;
+}
