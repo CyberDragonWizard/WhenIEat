@@ -47,6 +47,11 @@ class DaysController < ApplicationController
   
       render json: @day, include: :meals
     end
+
+    @day = current_user.days.find_by(date: value)
+    if !@day
+     @day = Day.create()
+    end
   
     private
       # Use callbacks to share common setup or constraints between actions.

@@ -4,4 +4,5 @@ class MealsController < ApplicationController
         @meals = Meal.all
 
         render json: @meals
+    end
 end
