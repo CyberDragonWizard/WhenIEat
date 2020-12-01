@@ -5,3 +5,29 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Day.destroy_all
+Meal.destroy_all
+User.destroy_all
+
+@admin = User.create!(email: 'admin@email.com', password: 'password', age: 31, height: 60, weight: 400, imgUrl: 'https://i.imgur.com/e9lA0oE.jpeg')
+
+puts "#{User.count} users created"
+
+@meal1 = Meal.create!(name: 'cereal', calories: 220, protein: 7, carbs: 25, fats: 6)
+@meal2 = Meal.create!(name: 'hamburger', calories: 530, protein: 27, carbs: 85, fats: 20)
+@meal3 = Meal.create!(name: 'hotdog', calories: 100, protein: 3, carbs: 3, fats: 22)
+@meal4 = Meal.create!(name: 'spaghetti', calories: 425, protein: 17, carbs: 43, fats: 26)
+@meal5 = Meal.create!(name: 'ham sandwhich', calories: 320, protein: 12, carbs: 20, fats: 6)
+
+puts "#{Meal.count} meals created"
+
+@day1 = Day.create!(date: '11/23/2020', meals: [@meal1, @meal2, @meal5], user: @admin)
+
+@day2 = Day.create!(date: '11/24/2020', user: @admin)
+
+@day2.meals.push(@meal2, @meal5)
+
+@meal1.days.create!(date: '11/25/2020', user: @admin)
+
+puts "#{Day.count} days created"
