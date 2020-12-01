@@ -9,7 +9,9 @@ function Account() {
         <div>
             <Header />
             <Navbar />
-            <HomeFooter /> 
+            <div>
+                <HomeFooter /> 
+            </div>
         </div>
     );
 }
