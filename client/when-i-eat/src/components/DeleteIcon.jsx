@@ -6,9 +6,7 @@ import axios from 'axios'
 
 
 const useStyles = makeStyles((theme) => ({
-  margin: {
-    marginLeft: '-50px',
-  },
+
 }));
 
 export default function DeleteButton(props) {
