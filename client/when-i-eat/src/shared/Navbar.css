@@ -13,7 +13,7 @@
 }
 
 .nav-account-div {
-  /* margin-bottom: 100px; */
+  margin-bottom: 10px;
 }
 
 .nav-account-info {
@@ -29,6 +29,7 @@
   font-weight: 400;
   font-size: 22px;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 
 .nav-button {
@@ -54,6 +55,11 @@
 
 .nav-button-div {
  margin-bottom: 100px;
+}
+
+.nav-line {
+  width: 80%;
+  margin-bottom: 30px;
 }
 
 .nav-profile-placeholder {

@@ -7,8 +7,14 @@ export default function Navbar() {
     return (
         <div className='navbar'>
             <div className='nav-account-div'>
-                <h3 className='nav-account-title'>My Account</h3>
+                <NavLink to='/account' style={{ textDecoration: 'none' }}>
+                    <h3 className='nav-account-title'>My Account</h3>
+                </NavLink>
+
+                <NavLink to='/account'>
                 <img className='nav-profile-placeholder' src={ProfilePlaceholder} alt='logo' height='110' width='110' />
+                </NavLink>
+
                 <h3 className='nav-account-info'>Name</h3>
                 <h3 className='nav-account-info'>Height</h3>
                 <h3 className='nav-account-info'>Weight</h3>
