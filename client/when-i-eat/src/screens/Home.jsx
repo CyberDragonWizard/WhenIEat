@@ -15,9 +15,11 @@ import './Home.css'
 function Home() {
 
     return (
-        <div>
+        <div className='table-div'>
             <Header />
             <img className='header-logo-home' src={LogoImg} alt='logo' height='110' width='110' />
+
+            <h2 className='calorie-counter'>Calories: 0</h2>
 
             <div className='breakfast-table-div'>
               <AddIcon />
