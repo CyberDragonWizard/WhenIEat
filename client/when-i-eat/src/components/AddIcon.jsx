@@ -1,23 +1,28 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
-import EditIcon from '@material-ui/icons/Edit';
+import AddIcon from '@material-ui/icons/Add';
 
 
 const useStyles = makeStyles((theme) => ({
-    margin: {
-      transition: 'all .3s ease-in-out',
-    }
+    addIcon: {
+        fontSize: '50px',
+        color: 'black',
+      },
+      margin: {
+          marginRight: '50px',
+          transition: 'all .3s ease-in-out'
+      }
 }));
 
-export default function DeleteButton() {
+export default function AddButton() {
 
   const classes = useStyles();
 
   return (
     <div>
         <IconButton aria-label="edit" className={classes.margin} >
-          <EditIcon />
+          <AddIcon className={classes.addIcon}/>
         </IconButton>
     </div>
   );
