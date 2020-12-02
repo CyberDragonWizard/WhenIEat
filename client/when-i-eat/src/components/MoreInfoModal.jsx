@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: "transparent",
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
@@ -22,6 +23,9 @@ const useStyles = makeStyles((theme) => ({
     position: 'fixed',
     height: '400px'
   },
+  backDrop: {
+    background: 'rgba(0,0,0,0.0)',
+  }
 }));
 
 export default function MoreInfoModal() {
@@ -34,6 +38,7 @@ export default function MoreInfoModal() {
 
   const handleClose = () => {
     setOpen(false);
+
   };
 
   return (
@@ -51,6 +56,9 @@ export default function MoreInfoModal() {
         BackdropComponent={Backdrop}
         BackdropProps={{
           timeout: 500,
+          classes: {
+              root: classes.backDrop
+          }
         }}
       >
         <Fade in={open}>
@@ -64,7 +72,9 @@ export default function MoreInfoModal() {
                  <input type='text' className='info-input' placeholder='Weight (lbs)'></input>
                  <br/>
                  <input type='text' className='info-input' placeholder='Height (inches)'></input>
-                 <button type="button" className='continue-button' onClick={handleClose}>Contine</button>
+                 <NavLink to ='/home'>
+                    <button type="button" className='continue-button' onClick={handleClose}>Contine</button>
+                 </NavLink>
              </form>
           </div>
         </Fade>
