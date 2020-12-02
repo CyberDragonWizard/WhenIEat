@@ -7,7 +7,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import EditIcon from '@material-ui/icons/Edit';
+import EditIcon from './Edit';
 import DeleteIcon from './DeleteIcon';
 
 const StyledTableCell = withStyles((theme) => ({
@@ -22,10 +22,6 @@ const StyledTableCell = withStyles((theme) => ({
       fontFamily: 'Montserrat',
       border: 'none'
     },
-    editIcon: {
-        color: 'gray',
-        top: '5px'
-    }
   }))(TableCell);
   
   const StyledTableRow = withStyles((theme) => ({
@@ -50,14 +46,14 @@ const StyledTableCell = withStyles((theme) => ({
   
   const useStyles = makeStyles({
     table: {
-      minWidth: 700,
+      minWidth: 1200,
     },
     tableContainer: {
-        marginTop: '200px',
         boxShadow: '0 0 3px 3px rgba(0, 0, 0, 0.573)',
         maxWidth: '1200px',
+        maxHeight: '400px',
         margin: '0 auto',
-    }
+    },
   });
 
 export default function BreakfastTable() {
