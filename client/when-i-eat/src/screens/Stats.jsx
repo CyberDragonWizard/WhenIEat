@@ -13,7 +13,6 @@ export default function Stats() {
              <h3 className='stats'>Stats</h3>
             <Navbar />
             <HomeFooter /> 
-            
         </div>
     )
 }
