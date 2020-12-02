@@ -10,8 +10,6 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: '300px',
-    position: 'fixed',
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
@@ -19,7 +17,9 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2, 4, 3),
     borderRadius: '8px',
     outline: 'none',
-    width: '600px'
+    width: '600px',
+    marginBottom: '10%',
+    position: 'fixed'
   },
 }));
 
@@ -61,6 +61,7 @@ export default function SignUpModal() {
                  <input type='password' className='sign-up-input' placeholder='Password'></input>
                  <br/>
                  <input type='password' className='sign-up-input' placeholder='Re-enter Password'></input>
+                 <button type="button" className='register-button' onClick={handleClose}>Register</button>
              </form>
           </div>
         </Fade>
