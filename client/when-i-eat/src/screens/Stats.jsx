@@ -4,7 +4,7 @@ import Header from '../shared/Header';
 import LogoImg from '../Assets/logo.png';
 import Navbar from '../shared/Navbar';
 
-function Home() {
+export default function Stats() {
     return (
         <div>
             <Header />
@@ -13,7 +13,5 @@ function Home() {
             <HomeFooter /> 
             
         </div>
-    );
+    )
 }
-
-export default Home;
