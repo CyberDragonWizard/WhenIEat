@@ -20,7 +20,12 @@ const StyledTableCell = withStyles((theme) => ({
     body: {
       fontSize: 16,
       fontFamily: 'Montserrat',
+      border: 'none'
     },
+    editIcon: {
+        color: 'gray',
+        top: '5px'
+    }
   }))(TableCell);
   
   const StyledTableRow = withStyles((theme) => ({
@@ -62,13 +67,15 @@ export default function BreakfastTable() {
         <div>
             <TableContainer className={classes.tableContainer} component={Paper}>
                 <Table className={classes.table} aria-label="customized table">
-                  <TableHead>
+                  <TableHead className={classes.tableHead}>
                     <TableRow>
-                      <StyledTableCell>Breakfast</StyledTableCell>
-                      <StyledTableCell align="right">Protein&nbsp;(g)</StyledTableCell>
-                      <StyledTableCell align="right">Carbs&nbsp;(g)</StyledTableCell>
-                      <StyledTableCell align="right">Fats&nbsp;(g)</StyledTableCell>
-                      <StyledTableCell align="right">Calories</StyledTableCell>
+                    <StyledTableCell></StyledTableCell>
+                      <StyledTableCell >Breakfast</StyledTableCell>
+                      <StyledTableCell align="center">Protein&nbsp;(g)</StyledTableCell>
+                      <StyledTableCell align="center">Carbs&nbsp;(g)</StyledTableCell>
+                      <StyledTableCell align="center">Fats&nbsp;(g)</StyledTableCell>
+                      <StyledTableCell align="center">Calories</StyledTableCell>
+                      <StyledTableCell></StyledTableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
@@ -78,11 +85,11 @@ export default function BreakfastTable() {
                         <StyledTableCell component="th" scope="row">
                           {row.name}
                         </StyledTableCell>
-                        <StyledTableCell align="right">{row.protein}</StyledTableCell>
-                        <StyledTableCell align="right">{row.carbs}</StyledTableCell>
-                        <StyledTableCell align="right">{row.fats}</StyledTableCell>
-                        <StyledTableCell align="right">{row.calories}</StyledTableCell>
-                        <EditIcon align="right"/>
+                        <StyledTableCell align="center">{row.protein}</StyledTableCell>
+                        <StyledTableCell align="center">{row.carbs}</StyledTableCell>
+                        <StyledTableCell align="center">{row.fats}</StyledTableCell>
+                        <StyledTableCell align="center">{row.calories}</StyledTableCell>
+                        <EditIcon className='editIcon'/>
                        </StyledTableRow>
                       ))}
                   </TableBody>
