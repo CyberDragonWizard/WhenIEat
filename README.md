@@ -74,6 +74,7 @@ WhenIEat is an easy to use nutrition/calorie tracker app, allowing a user to kee
 |      React       |              JavaScrip Framework.          |
 |   React Router   |      React navigational componenets.       |
 | React Material-UI|  React web-development compnent library.   |
+| Material-UI Icon|  A simple icon library.   |
 |      Rails       |               Ruby Framework.              |
 |    PostgresSQL   |   Relational database management system.   |
 |      Puma        |            A Ruby/Rack web server.         |
