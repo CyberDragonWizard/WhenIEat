@@ -1,6 +1,7 @@
 import React from 'react';
 import Footer from '../shared/Footer';
 import Header from '../shared/Header';
+import SignUpModal from '../components/SignUpModal'
 import LogoImg from '../Assets/logo.png';
 import { NavLink } from 'react-router-dom';
 import './Login.css';
@@ -26,7 +27,7 @@ function Login() {
                  </div>
              </form>
              <h3 className='welcome-message'>Or</h3>
-             <button type='submit' className='button'>Sign Up</button>
+             <SignUpModal />
             <Footer />
             </div>
         </div>
