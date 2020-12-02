@@ -7,14 +7,19 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from './DeleteIcon';
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
       backgroundColor: '#284550',
       color: theme.palette.common.white,
+      fontFamily: 'Montserrat',
+      fontSize: 18,
     },
     body: {
-      fontSize: 14,
+      fontSize: 16,
+      fontFamily: 'Montserrat',
     },
   }))(TableCell);
   
@@ -69,6 +74,7 @@ export default function BreakfastTable() {
                   <TableBody>
                     {rows.map((row) => (
                       <StyledTableRow key={row.name}>
+                        <DeleteIcon />
                         <StyledTableCell component="th" scope="row">
                           {row.name}
                         </StyledTableCell>
@@ -76,6 +82,7 @@ export default function BreakfastTable() {
                         <StyledTableCell align="right">{row.carbs}</StyledTableCell>
                         <StyledTableCell align="right">{row.fats}</StyledTableCell>
                         <StyledTableCell align="right">{row.calories}</StyledTableCell>
+                        <EditIcon />
                        </StyledTableRow>
                       ))}
                   </TableBody>
