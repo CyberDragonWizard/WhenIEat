@@ -3,8 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-import MoreInfoModal from './MoreInfoModal'
-import './SignUpModal.css'
+import './MoreInfoModal.css'
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -25,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignUpModal() {
+export default function MoreInfoModal() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -39,8 +38,8 @@ export default function SignUpModal() {
 
   return (
     <div>
-      <button type="button" className='sign-up-button' onClick={handleOpen}>
-        Sign Up
+      <button type="button" className='continue-button' onClick={handleOpen}>
+        Register
       </button>
       <Modal
         aria-labelledby="transition-modal-title"
@@ -56,14 +55,16 @@ export default function SignUpModal() {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 className="transition-modal-title">Sign Up!</h2>
-            <form className='sign-up-form'>
-                 <input type='text' className='sign-up-input' placeholder='Email'></input>
+            <h2 className="info-modal-title">We just need a bit more information.</h2>
+            <form className='info-form'>
+                 <input type='text' className='info-input' placeholder='Name'></input>
                  <br/>
-                 <input type='password' className='sign-up-input' placeholder='Password'></input>
+                 <input type='text' className='info-input' placeholder='Age'></input>
                  <br/>
-                 <input type='password' className='sign-up-input' placeholder='Re-enter Password'></input>
-                  <MoreInfoModal onClick={handleClose} />
+                 <input type='text' className='info-input' placeholder='Weight (lbs)'></input>
+                 <br/>
+                 <input type='text' className='info-input' placeholder='Height (inches)'></input>
+                 <button type="button" className='contine-button' onClick={handleClose}>Contine</button>
              </form>
           </div>
         </Fade>
