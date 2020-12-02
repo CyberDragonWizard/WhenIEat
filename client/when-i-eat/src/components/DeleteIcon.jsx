@@ -6,7 +6,9 @@ import axios from 'axios'
 
 
 const useStyles = makeStyles((theme) => ({
-
+    margin: {
+        transition: 'all .3s ease-in-out',
+    }
 }));
 
 export default function DeleteButton(props) {

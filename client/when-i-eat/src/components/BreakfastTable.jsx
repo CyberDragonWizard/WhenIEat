@@ -46,12 +46,12 @@ const StyledTableCell = withStyles((theme) => ({
   
   const useStyles = makeStyles({
     table: {
-      minWidth: 1200,
+      minWidth: 1100,
     },
     tableContainer: {
         boxShadow: '0 0 3px 3px rgba(0, 0, 0, 0.573)',
         maxWidth: '1200px',
-        maxHeight: '400px',
+        maxHeight: '300px',
         margin: '0 auto',
     },
   });
@@ -62,7 +62,7 @@ export default function BreakfastTable() {
     return (
         <div>
             <TableContainer className={classes.tableContainer} component={Paper}>
-                <Table className={classes.table} aria-label="customized table">
+                <Table stickyHeader className={classes.table} aria-label="customized table">
                   <TableHead className={classes.tableHead}>
                     <TableRow>
                     <StyledTableCell></StyledTableCell>

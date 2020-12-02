@@ -6,3 +6,16 @@
     align-items: center;
     padding-left: 180px;
 }
+
+.header-logo-home {
+    z-index: 3;
+}
+
+.other-table-div {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-left: 180px;
+}
