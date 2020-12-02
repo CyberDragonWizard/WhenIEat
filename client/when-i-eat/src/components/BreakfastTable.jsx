@@ -82,7 +82,7 @@ export default function BreakfastTable() {
                         <StyledTableCell align="right">{row.carbs}</StyledTableCell>
                         <StyledTableCell align="right">{row.fats}</StyledTableCell>
                         <StyledTableCell align="right">{row.calories}</StyledTableCell>
-                        <EditIcon />
+                        <EditIcon align="right"/>
                        </StyledTableRow>
                       ))}
                   </TableBody>

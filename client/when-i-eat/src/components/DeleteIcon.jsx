@@ -9,9 +9,6 @@ const useStyles = makeStyles((theme) => ({
   margin: {
     marginLeft: '-50px',
   },
-//   extendedIcon: {
-//     marginRight: theme.spacing(1),
-//   },
 }));
 
 export default function DeleteButton(props) {
