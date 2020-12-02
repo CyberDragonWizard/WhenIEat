@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
+import { NavLink } from 'react-router-dom';
 import './MoreInfoModal.css'
 
 const useStyles = makeStyles((theme) => ({
@@ -13,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
-    boxShadow: '0 0 10px 10px rgba(0, 0, 0, 0.184)',
     padding: theme.spacing(2, 4, 3),
     borderRadius: '8px',
     outline: 'none',
@@ -38,7 +38,7 @@ export default function MoreInfoModal() {
 
   return (
     <div>
-      <button type="button" className='continue-button' onClick={handleOpen}>
+      <button type="button" className='register-button' onClick={handleOpen}>
         Register
       </button>
       <Modal
@@ -64,7 +64,7 @@ export default function MoreInfoModal() {
                  <input type='text' className='info-input' placeholder='Weight (lbs)'></input>
                  <br/>
                  <input type='text' className='info-input' placeholder='Height (inches)'></input>
-                 <button type="button" className='contine-button' onClick={handleClose}>Contine</button>
+                 <button type="button" className='continue-button' onClick={handleClose}>Contine</button>
              </form>
           </div>
         </Fade>

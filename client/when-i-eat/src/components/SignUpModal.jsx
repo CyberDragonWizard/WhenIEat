@@ -63,7 +63,7 @@ export default function SignUpModal() {
                  <input type='password' className='sign-up-input' placeholder='Password'></input>
                  <br/>
                  <input type='password' className='sign-up-input' placeholder='Re-enter Password'></input>
-                  <MoreInfoModal onClick={handleClose} />
+                 <MoreInfoModal />
              </form>
           </div>
         </Fade>
