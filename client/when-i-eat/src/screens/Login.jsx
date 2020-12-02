@@ -9,7 +9,7 @@ function Login() {
     return (
         <div>
             <Header />
-                <img className='header-logo-landing' src={LogoImg} alt='logo' height='110' width='110' />
+            <img className='header-logo-landing' src={LogoImg} alt='logo' height='110' width='110' />
             <div className='log-in-body'>
              <h2 className='welcome'>Welcome!</h2>
              <h3 className='welcome-message'>WhenIEat is an easy to use nutrition application <br/> for you to tack your calories</h3>

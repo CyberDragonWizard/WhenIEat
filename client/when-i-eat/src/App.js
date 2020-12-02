@@ -1,7 +1,9 @@
-import { Switch, Route} from 'react-router-dom'
+import { Switch, Route} from 'react-router-dom';
 import './App.css';
-import Account from './screens/Account'
-import Login from './screens/Login'
+import Account from './screens/Account';
+import Home from './screens/Home';
+import Login from './screens/Login';
+import Stats from './screens/Stats'
 
 function App() {
   return (
@@ -14,6 +16,14 @@ function App() {
 
         <Route exact path='/account'>
           <Account />
+        </Route>
+
+        <Route exact path='/home'>
+          <Home />
+        </Route>
+
+        <Route exact path='/stats'>
+          <Stats />
         </Route>
 
       </div>
