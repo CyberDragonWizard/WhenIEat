@@ -1,3 +1,4 @@
+import React from 'react'
 import { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
@@ -29,6 +30,20 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function MoreInfoModal(props) {
+  const [formData, setFormData] = useState({
+    name: "",
+    age: "",
+    weight: "",
+    height: "",
+  })
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }))
+  }
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -64,14 +79,17 @@ export default function MoreInfoModal(props) {
         <Fade in={open}>
           <div className={classes.paper}>
             <h2 className="info-modal-title">We just need a bit more information.</h2>
-            <form className='info-form'>
-                 <input type='text' className='info-input' placeholder='Name'></input>
+            <form className='info-form' onSubmit={(e) => {
+              e.preventDefault();
+              props.handleRegister(formData)
+            }}>
+                 <input type='text' className='info-input' placeholder='Name' value={formData.name} onChange={handleChange}/>
                  <br/>
-                 <input type='text' className='info-input' placeholder='Age'></input>
+                 <input type='text' className='info-input' placeholder='Age' value={formData.age} onChange={handleChange}/>
                  <br/>
-                 <input type='text' className='info-input' placeholder='Weight (lbs)'></input>
+                 <input type='text' className='info-input' placeholder='Weight (lbs)' value={formData.weight} onChange={handleChange}/>
                  <br/>
-                 <input type='text' className='info-input' placeholder='Height (inches)'></input>
+                 <input type='text' className='info-input' placeholder='Height (inches)' value={formData.height} onChange={handleChange}/>
                  <NavLink to ='/home'>
                     <button type="button" className='continue-button' onClick={handleClose}>Contine</button>
                  </NavLink>

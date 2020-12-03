@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -25,7 +25,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignUpModal() {
+export default function SignUpModal(props) {
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    password: ""
+  })
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }))
+  }
+  
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -57,10 +71,13 @@ export default function SignUpModal() {
         <Fade in={open}>
           <div className={classes.paper}>
             <h2 className="transition-modal-title">Sign Up!</h2>
-            <form className='sign-up-form'>
-                 <input type='text' className='sign-up-input' placeholder='Email'></input>
+            <form className='sign-up-form' onSubmit={(e) => {
+              e.preventDefault();
+              props.handleRegister(formData);
+            }}>
+                 <input type='text' className='sign-up-input' placeholder='Email' value={formData.email} onChange={handleChange}/>
                  <br/>
-                 <input type='password' className='sign-up-input' placeholder='Password'></input>
+                 <input type='password' className='sign-up-input' placeholder='Password' value={formData.password} onChange={handleChange} />
                  
                  <MoreInfoModal />
              </form>
