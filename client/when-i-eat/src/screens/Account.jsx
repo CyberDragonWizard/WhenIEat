@@ -8,7 +8,7 @@ import ProfilePlaceholder from '../Assets/profile-placeholder.png'
 import { NavLink } from 'react-router-dom';
 
 function Account(props) {
-    const { handleLogout } = props;
+
     return (
         <div>
             <Header />
@@ -26,13 +26,8 @@ function Account(props) {
                  <input type='text' className='account-input' placeholder='Weight'></input>
                  <button type='submit' className='save-button'>Save Changes</button>
                  <NavLink to='/'>
-                    <button
-                    onClick={handleLogout}
-                    handleLogout={props.handleLogout}
-                    type='submit' 
-                    className='logout-button'>Log Out</button>
+                    <button type='submit' className='logout-button'>Log Out</button>
                  </NavLink>
-                 {props.children}
             </div>
             <Navbar />
             <HomeFooter /> 

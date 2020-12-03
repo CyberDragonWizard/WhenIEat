@@ -38,8 +38,8 @@ export default function AddBreakfastModal() {
 
   return (
     <div>
-      <div onClick={handleOpen}>
-        <AddIcon />
+      <div>
+        <AddIcon onClick={() => handleOpen()}/>
       </div>
       <Modal
         aria-labelledby="transition-modal-title"

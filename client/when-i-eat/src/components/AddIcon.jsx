@@ -26,7 +26,7 @@ export default function AddButton() {
     <div>
         <IconButton aria-label="edit" className={classes.margin} >
           <AddIcon className={classes.addIcon}/>
-        </IconButton>
+        </IconButton> 
     </div>
   );
 }
