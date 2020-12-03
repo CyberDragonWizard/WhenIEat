@@ -8,7 +8,9 @@ import Header from '../shared/Header';
 import LogoImg from '../Assets/logo.png';
 import Navbar from '../shared/Navbar';
 import AddIcon from '../components/AddIcon';
-import './Home.css'
+import DateMenu from '../components/DateMenu';
+import AddDateModal from '../components/AddDateModal';
+import './Home.css';
 
 
 
@@ -20,6 +22,10 @@ function Home() {
             <img className='header-logo-home' src={LogoImg} alt='logo' height='110' width='110' />
 
             <h2 className='calorie-counter'>Calories: 0</h2>
+            <div className='date-menu-div'>
+              <AddDateModal/>
+              <DateMenu />
+            </div>
 
             <div className='breakfast-table-div'>
               <AddIcon />
