@@ -28,7 +28,7 @@ export default function AddBreakfastModal() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
-  const handleOpen = () => {
+  const handleOpen = (props) => {
     setOpen(true);
   };
 

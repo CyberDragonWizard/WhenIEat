@@ -33,6 +33,7 @@ function Login(props) {
                  props.handleLogin(formData);
              }}>
                  <input
+                 name='email'
                  type='text' 
                  className='input' 
                  placeholder='Email'
@@ -41,6 +42,7 @@ function Login(props) {
                  />
                  <br/>
                  <input 
+                 name='password'
                  type='password' 
                  className='input' 
                  placeholder='Password'

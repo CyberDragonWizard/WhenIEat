@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import ProfilePlaceholder from '../Assets/profile-placeholder.png'
 
 export default function Navbar(props) {
+    const { currentUser } = props;
     return (
         <div className='navbar'>
             <div className='nav-account-div'>
@@ -15,9 +16,12 @@ export default function Navbar(props) {
                 <img className='nav-profile-placeholder' src={ProfilePlaceholder} alt='logo' height='110' width='110' />
                 </NavLink>
 
+                
+
                 <h3 className='nav-account-info'>{props.currentUser}</h3>
-                {/* <h3 className='nav-account-info'>{props.currentUser.height}</h3>
-                <h3 className='nav-account-info'>{props.currentUser.weight}</h3> */}
+                <h3 className='nav-account-info'>{props.currentUser}</h3>
+                <h3 className='nav-account-info'>{props.currentUser}</h3> 
+
             </div>
             <hr className='nav-line'/>
             <div className='nav-button-div'>
