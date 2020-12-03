@@ -1,34 +1,30 @@
-import { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-import { NavLink } from 'react-router-dom';
-import './MoreInfoModal.css'
+import AddIcon from './AddIcon'
 
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: "transparent",
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
+    boxShadow: '0 0 10px 10px rgba(0, 0, 0, 0.184)',
     padding: theme.spacing(2, 4, 3),
     borderRadius: '8px',
     outline: 'none',
     width: '600px',
     marginBottom: '2%',
     position: 'fixed',
-    height: '400px'
+    height: '510px'
   },
-  backDrop: {
-    background: 'rgba(0,0,0,0.0)',
-  }
 }));
 
-export default function MoreInfoModal(props) {
+export default function AddLunchModal() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -38,14 +34,13 @@ export default function MoreInfoModal(props) {
 
   const handleClose = () => {
     setOpen(false);
-
   };
 
   return (
     <div>
-      <button type="button" className='register-button' onClick={handleOpen}>
-        Register
-      </button>
+      <div onClick={handleOpen}>
+        <AddIcon />
+      </div>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -56,25 +51,23 @@ export default function MoreInfoModal(props) {
         BackdropComponent={Backdrop}
         BackdropProps={{
           timeout: 500,
-          classes: {
-              root: classes.backDrop
-          }
         }}
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 className="info-modal-title">We just need a bit more information.</h2>
-            <form className='info-form'>
-                 <input type='text' className='info-input' placeholder='Name'></input>
+            <h2 className="transition-modal-title">What was for lunch?</h2>
+            <form className='sign-up-form'>
+                 <input type='text' className='sign-up-input' placeholder="Meal"></input>
                  <br/>
-                 <input type='text' className='info-input' placeholder='Age'></input>
+                 <input type='text' className='sign-up-input' placeholder="Protein(g)"></input>
                  <br/>
-                 <input type='text' className='info-input' placeholder='Weight (lbs)'></input>
+                 <input type='text' className='sign-up-input' placeholder="Carbs(g)"></input>
                  <br/>
-                 <input type='text' className='info-input' placeholder='Height (inches)'></input>
-                 <NavLink to ='/home'>
-                    <button type="button" className='continue-button' onClick={handleClose}>Contine</button>
-                 </NavLink>
+                 <input type='text' className='sign-up-input' placeholder="Fats(g)"></input>
+                 <br/>
+                 <input type='text' className='sign-up-input' placeholder="Fats(g)"></input>
+                 <br/>
+                 <button type="button" className='save-changes-button' onClick={handleClose}>Add Meal</button>
              </form>
           </div>
         </Fade>

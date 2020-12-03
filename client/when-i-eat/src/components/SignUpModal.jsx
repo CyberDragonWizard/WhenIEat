@@ -61,8 +61,7 @@ export default function SignUpModal() {
                  <input type='text' className='sign-up-input' placeholder='Email'></input>
                  <br/>
                  <input type='password' className='sign-up-input' placeholder='Password'></input>
-                 <br/>
-                 <input type='password' className='sign-up-input' placeholder='Re-enter Password'></input>
+                 
                  <MoreInfoModal />
              </form>
           </div>
