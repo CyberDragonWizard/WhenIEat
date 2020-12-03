@@ -7,7 +7,12 @@ import axios from 'axios'
 
 const useStyles = makeStyles((theme) => ({
     margin: {
-        transition: 'all .3s ease-in-out',
+        transition: 'all .2s ease-in-out',
+        marginTop: '6px',
+        '&:hover': {
+          backgroundColor: '#c2193e00',
+          color: '#a50000fa',
+      }
     }
 }));
 

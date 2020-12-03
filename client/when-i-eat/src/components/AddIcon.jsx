@@ -11,7 +11,10 @@ const useStyles = makeStyles((theme) => ({
       },
       margin: {
           marginRight: '50px',
-          transition: 'all .3s ease-in-out'
+          transition: 'all .2s ease-in-out',
+          '&:hover': {
+            backgroundColor: '#19bcc221'
+        }
       }
 }));
 

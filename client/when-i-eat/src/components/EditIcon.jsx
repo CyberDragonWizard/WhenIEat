@@ -6,8 +6,13 @@ import EditIcon from '@material-ui/icons/Edit';
 
 const useStyles = makeStyles((theme) => ({
     margin: {
-      transition: 'all .3s ease-in-out',
+      transition: 'all .2s ease-in-out',
+      '&:hover': {
+        backgroundColor: '#19bcc200',
+        color: '#19bcc2c4',
     }
+    },
+    
 }));
 
 export default function DeleteButton() {
@@ -17,7 +22,7 @@ export default function DeleteButton() {
   return (
     <div>
         <IconButton aria-label="edit" className={classes.margin} >
-          <EditIcon />
+          <EditIcon className={classes.editIcon}/>
         </IconButton>
     </div>
   );
