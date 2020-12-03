@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import Footer from '../shared/Footer';
 import Header from '../shared/Header';
 import SignUpModal from '../components/SignUpModal'
@@ -32,21 +32,21 @@ function Login(props) {
                  e.preventDefault();
                  props.handleLogin(formData);
              }}>
-                 <input 
+                 <input
                  type='text' 
                  className='input' 
-                 placeholder='Email'>
+                 placeholder='Email'
                  value={formData.email}
                  onChange={handleChange}
-                 </input>
+                 />
                  <br/>
                  <input 
                  type='password' 
                  className='input' 
-                 placeholder='Password'>
+                 placeholder='Password'
                  value={formData.password}
                  onChange={handleChange}    
-                 </input>
+                 />
                  <br/>
                  <div className='button-div'>
                  <NavLink to='/home'>
