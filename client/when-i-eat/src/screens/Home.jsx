@@ -7,9 +7,12 @@ import HomeFooter from '../shared/HomeFooter';
 import Header from '../shared/Header';
 import LogoImg from '../Assets/logo.png';
 import Navbar from '../shared/Navbar';
-import AddIcon from '../components/AddIcon';
 import DateMenu from '../components/DateMenu';
 import AddDateModal from '../components/AddDateModal';
+import AddBreakfastModal from '../components/AddBreakfastModal';
+import AddLunchModal from '../components/AddLunchModal';
+import AddDinnerModal from '../components/AddDinnerModal';
+import AddSnacksModal from '../components/AddSnacksModal';
 import './Home.css';
 
 
@@ -28,22 +31,22 @@ function Home() {
             </div>
 
             <div className='breakfast-table-div'>
-              <AddIcon />
+              <AddBreakfastModal />
               <BreakfastTable />
             </div>
 
             <div className='other-table-div'>
-              <AddIcon />
+              <AddLunchModal />
               <LunchTable />
             </div>
 
             <div className='other-table-div'>
-              <AddIcon />
+              <AddDinnerModal />
               <DinnerTable />
             </div>
 
             <div className='other-table-div'>
-              <AddIcon />
+              <AddSnacksModal />
               <SnacksTable />
             </div>
 
