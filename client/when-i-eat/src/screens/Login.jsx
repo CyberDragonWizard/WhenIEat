@@ -6,7 +6,20 @@ import LogoImg from '../Assets/logo.png';
 import { NavLink } from 'react-router-dom';
 import './Login.css';
 
-function Login() {
+function Login(props) {
+    const [formData, setFormData] = useState({
+        email: "",
+        password: "",
+    })
+
+    const handleChange = (e) => {
+      const { name, value } = e.target;
+      setFormData(prevState => ({
+          ...prevState,
+          [name]: value
+      }))
+    }
+
     return (
         <div>
             <Header />
@@ -15,10 +28,25 @@ function Login() {
              <h2 className='welcome'>Welcome!</h2>
              <h3 className='welcome-message'>WhenIEat is an easy to use nutrition application <br/> for you to tack your calories</h3>
              <h2 className='log-in'>Log In</h2>
-             <form>
-                 <input type='text' className='input' placeholder='Email'></input>
+             <form onSubmit={(e) => {
+                 e.preventDefault();
+                 props.handleLogin(formData);
+             }}>
+                 <input 
+                 type='text' 
+                 className='input' 
+                 placeholder='Email'>
+                 value={formData.email}
+                 onChange={handleChange}
+                 </input>
                  <br/>
-                 <input type='password' className='input' placeholder='Password'></input>
+                 <input 
+                 type='password' 
+                 className='input' 
+                 placeholder='Password'>
+                 value={formData.password}
+                 onChange={handleChange}    
+                 </input>
                  <br/>
                  <div className='button-div'>
                  <NavLink to='/home'>
