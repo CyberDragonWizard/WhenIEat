@@ -28,7 +28,7 @@ export default function AddBreakfastModal() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
-  const handleOpen = () => {
+  const handleOpen = (props) => {
     setOpen(true);
   };
 
@@ -38,8 +38,8 @@ export default function AddBreakfastModal() {
 
   return (
     <div>
-      <div>
-        <AddIcon onClick={() => handleOpen()}/>
+      <div onClick={handleOpen}>
+        <AddIcon />
       </div>
       <Modal
         aria-labelledby="transition-modal-title"
