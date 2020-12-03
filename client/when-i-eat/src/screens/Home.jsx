@@ -20,10 +20,10 @@ import './Home.css';
 function Home() {
 
     return (
-        <div className='table-div'>
+        <div>
             <Header />
             <img className='header-logo-home' src={LogoImg} alt='logo' height='110' width='110' />
-
+            <div classname='table-div'>
             <h2 className='calorie-counter'>Calories: 0</h2>
             <div className='date-menu-div'>
               <AddDateModal/>
@@ -48,6 +48,7 @@ function Home() {
             <div className='other-table-div'>
               <AddSnacksModal />
               <SnacksTable />
+            </div>
             </div>
 
             <Navbar />
