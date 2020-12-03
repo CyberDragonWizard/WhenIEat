@@ -7,7 +7,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import EditIcon from './EditIcon';
+import EditMealModal from './EditMealModal';
 import DeleteIcon from './DeleteIcon';
 
 const StyledTableCell = withStyles((theme) => ({
@@ -85,7 +85,7 @@ export default function BreakfastTable() {
                         <StyledTableCell align="center">{row.carbs}</StyledTableCell>
                         <StyledTableCell align="center">{row.fats}</StyledTableCell>
                         <StyledTableCell align="center">{row.calories}</StyledTableCell>
-                        <EditIcon className='editIcon'/>
+                        <EditMealModal className='editIcon'/>
                        </StyledTableRow>
                       ))}
                   </TableBody>
