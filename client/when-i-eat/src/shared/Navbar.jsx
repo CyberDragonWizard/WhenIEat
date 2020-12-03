@@ -15,7 +15,7 @@ export default function Navbar(props) {
                 <img className='nav-profile-placeholder' src={ProfilePlaceholder} alt='logo' height='110' width='110' />
                 </NavLink>
 
-                <h3 className='nav-account-info'>{props.currentUser}</h3>
+                <h3 className='nav-account-info'>{props.currentUser.name}</h3>
                 {/* <h3 className='nav-account-info'>{props.currentUser.height}</h3>
                 <h3 className='nav-account-info'>{props.currentUser.weight}</h3> */}
             </div>

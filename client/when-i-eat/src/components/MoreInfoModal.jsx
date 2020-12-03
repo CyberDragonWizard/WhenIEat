@@ -83,13 +83,13 @@ export default function MoreInfoModal(props) {
               e.preventDefault();
               props.handleRegister(formData)
             }}>
-                 <input type='text' className='info-input' placeholder='Name' value={formData.name} onChange={handleChange}/>
+                 <input name='name' type='text' className='info-input' placeholder='Name' value={formData.name} onChange={handleChange}/>
                  <br/>
-                 <input type='text' className='info-input' placeholder='Age' value={formData.age} onChange={handleChange}/>
+                 <input name='age' type='text' className='info-input' placeholder='Age' value={formData.age} onChange={handleChange}/>
                  <br/>
-                 <input type='text' className='info-input' placeholder='Weight (lbs)' value={formData.weight} onChange={handleChange}/>
+                 <input name='weight' type='text' className='info-input' placeholder='Weight (lbs)' value={formData.weight} onChange={handleChange}/>
                  <br/>
-                 <input type='text' className='info-input' placeholder='Height (inches)' value={formData.height} onChange={handleChange}/>
+                 <input name='height' type='text' className='info-input' placeholder='Height (inches)' value={formData.height} onChange={handleChange}/>
                  <NavLink to ='/home'>
                     <button type="button" className='continue-button' onClick={handleClose}>Contine</button>
                  </NavLink>
