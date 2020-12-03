@@ -51,6 +51,6 @@ class UsersController < ApplicationController
   
       # Only allow a trusted parameter "white list" through.
       def user_params
-        params(:user).permit(:email, :password)
+        params.permit(:email, :password, :name)
       end
   end
