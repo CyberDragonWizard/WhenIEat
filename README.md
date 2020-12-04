@@ -71,11 +71,20 @@ WhenIEat is an easy to use nutrition/calorie tracker app, allowing a user to kee
 
 |     Library      | Description                                |
 | :--------------: | :----------------------------------------- |
-|      React       | _Lorem ipsum dolor sit amet, consectetur._ |
-|   React Router   | _Lorem ipsum dolor sit amet, consectetur._ |
-| React SemanticUI | _Lorem ipsum dolor sit amet, consectetur._ |
-|     Express      | _Lorem ipsum dolor sit amet, consectetur._ |
-|  Express Router  | _Lorem ipsum dolor sit amet, consectetur._ |
+|      React       |              JavaScrip Framework.          |
+|   React Router   |      React navigational componenets.       |
+| React Material-UI|  React web-development compnent library.   |
+| Material-UI Icon|  A simple icon library.   |
+|      Rails       |               Ruby Framework.              |
+|    PostgresSQL   |   Relational database management system.   |
+|      Puma        |            A Ruby/Rack web server.         |
+|     bcrypt       |   A password-hasing function.              |
+|      JWT         |  Json Web Token for token based authentication.         |
+|    Bootsnap      |    A Ruby library that reduces boot times. |
+|    Rack-Cors      |    For cross domain AJAX calls. |
+|    Byebug      |    A Rails debugger. |
+|    Listen      |    A Gem that listens to file modifications. |
+|    Spring      |    A Rails preloader application. |
 
 <br>
 
