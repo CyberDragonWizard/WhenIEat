@@ -15,13 +15,12 @@ export default function Navbar(props) {
                 <NavLink to='/account'>
                 <img className='nav-profile-placeholder' src={ProfilePlaceholder} alt='logo' height='110' width='110' />
                 </NavLink>
-
-                
-
-                <h3 className='nav-account-info'>{props.currentUser}</h3>
-                <h3 className='nav-account-info'>{props.currentUser}</h3>
-                <h3 className='nav-account-info'>{props.currentUser}</h3> 
-
+                <div>
+                    <h3 className='nav-account-info'>{currentUser.name}</h3>
+                    <h3 className='nav-account-info'>Age: {currentUser.age}</h3>
+                    <h3 className='nav-account-info'>Height: {currentUser.height} (in)</h3> 
+                    <h3 className='nav-account-info'>Weight: {currentUser.weight} (lbs)</h3> 
+                </div>
             </div>
             <hr className='nav-line'/>
             <div className='nav-button-div'>
