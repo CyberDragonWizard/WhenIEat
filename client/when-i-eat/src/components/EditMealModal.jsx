@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { useParams } from 'react-router-dom';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
@@ -25,7 +26,36 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function EditMealModal() {
+export default function EditMealModal(props) {
+  const [formData, setFormData] = useState({
+    name: '',
+    calories: null,
+    age: null,
+    height: null,
+    weight: null
+
+  })
+  const { id } = useParams();
+
+  useEffect(() => {
+    const prefillForm = () => {
+      const foodItem = props.foods.find(food => food.id === Number(id));
+      setFormData({
+        name: foodItem.name
+      })
+    }
+    if (props.foods.length){
+      prefillForm();
+    }
+  }, [props.foods])
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }))
+  }
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -58,15 +88,15 @@ export default function EditMealModal() {
           <div className={classes.paper}>
             <h2 className="transition-modal-title">Edit Your Meal.</h2>
             <form className='sign-up-form'>
-                 <input type='text' className='sign-up-input' placeholder="Meal"></input>
+                 <input name='name' type='text' className='sign-up-input' placeholder="Meal"></input>
                  <br/>
-                 <input type='text' className='sign-up-input' placeholder="Protein(g)"></input>
+                 <input name='calories' type='text' className='sign-up-input' placeholder="Protein(g)"></input>
                  <br/>
-                 <input type='text' className='sign-up-input' placeholder="Carbs(g)"></input>
+                 <input name='protein' type='text' className='sign-up-input' placeholder="Carbs(g)"></input>
                  <br/>
-                 <input type='text' className='sign-up-input' placeholder="Fats(g)"></input>
+                 <input name='carbs' type='text' className='sign-up-input' placeholder="Fats(g)"></input>
                  <br/>
-                 <input type='text' className='sign-up-input' placeholder="Fats(g)"></input>
+                 <input name='fats' type='text' className='sign-up-input' placeholder="Fats(g)"></input>
                  <br/>
                  <button type="button" className='save-changes-button' onClick={handleClose}>Save Changes</button>
              </form>

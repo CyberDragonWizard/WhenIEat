@@ -32,9 +32,9 @@ const useStyles = makeStyles((theme) => ({
 export default function MoreInfoModal(props) {
   const [formData, setFormData] = useState({
     name: "",
-    age: "",
-    weight: "",
-    height: "",
+    age: null,
+    weight: null,
+    height: null,
   })
 
   const handleChange = (e) => {
