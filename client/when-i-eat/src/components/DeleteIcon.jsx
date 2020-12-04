@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
-import axios from 'axios'
+import { destroyMeal } from '../services/meals'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function DeleteButton(props) {
   const [deleted, setDeleted] = useState(false);
+  const [meals, setMeals] = useState([]);
 
   const handleDelete = async (id) => {
     await destroyMeal(id);
@@ -31,8 +32,13 @@ export default function DeleteButton(props) {
   return (
     <div>
         <IconButton aria-label="delete" className={classes.margin} >
-          <DeleteIcon onClick={handleDelete}/>
-          {deleted}
+          <DeleteIcon 
+          meals={meals}
+          handleDelete={handleDelete}
+          currentUser={props.currentUser}
+          onClick={() => props.handleDelete(food.id)}
+          />
+
 
         </IconButton>
     </div>
