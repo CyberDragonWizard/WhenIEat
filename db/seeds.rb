@@ -10,7 +10,7 @@ Day.destroy_all
 Meal.destroy_all
 User.destroy_all
 
-@admin = User.create(email: 'admin@email.com', password: 'password', age: 31, height: 60, weight: 400, imgUrl: 'https://i.imgur.com/e9lA0oE.jpeg')
+@admin = User.create!(email: 'admin@email.com', password: 'password', age: 31, height: 60, weight: 400, imgUrl: 'https://i.imgur.com/e9lA0oE.jpeg')
 
 puts "#{User.count} users created"
 
