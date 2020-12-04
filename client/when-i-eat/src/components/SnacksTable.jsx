@@ -11,59 +11,59 @@ import EditIcon from './EditIcon';
 import DeleteIcon from './DeleteIcon';
 import { getAllMeals } from '../services/meals'
 
-const StyledTableCell = withStyles((theme) => ({
-    head: {
-      backgroundColor: '#284550',
-      color: theme.palette.common.white,
-      fontFamily: 'Montserrat',
-      fontSize: 18,
-    },
-    body: {
-      fontSize: 16,
-      fontFamily: 'Montserrat',
-      border: 'none'
-    },
-  }))(TableCell);
+// const StyledTableCell = withStyles((theme) => ({
+//     head: {
+//       backgroundColor: '#284550',
+//       color: theme.palette.common.white,
+//       fontFamily: 'Montserrat',
+//       fontSize: 18,
+//     },
+//     body: {
+//       fontSize: 16,
+//       fontFamily: 'Montserrat',
+//       border: 'none'
+//     },
+//   }))(TableCell);
   
-  const StyledTableRow = withStyles((theme) => ({
-    root: {
-      '&:nth-of-type(odd)': {
-        backgroundColor: theme.palette.action.hover,
-      },
-    },
-  }))(TableRow);
+//   const StyledTableRow = withStyles((theme) => ({
+//     root: {
+//       '&:nth-of-type(odd)': {
+//         backgroundColor: theme.palette.action.hover,
+//       },
+//     },
+//   }))(TableRow);
   
-  const useStyles = makeStyles({
-    table: {
-      minWidth: 1100,
-    },
-    tableContainer: {
-        boxShadow: '0 0 3px 3px rgba(0, 0, 0, 0.573)',
-        maxWidth: '1200px',
-        maxHeight: '300px',
-        margin: '0 auto',
-    },
-  });
+//   const useStyles = makeStyles({
+//     table: {
+//       minWidth: 1100,
+//     },
+//     tableContainer: {
+//         boxShadow: '0 0 3px 3px rgba(0, 0, 0, 0.573)',
+//         maxWidth: '1200px',
+//         maxHeight: '300px',
+//         margin: '0 auto',
+//     },
+//   });
 
 export default function SnacksTable() {
-  const [meals, setMeals] = useState([]);
-    const [fetchMeals, setFetchMeals] = useState(false);
+  // const [meals, setMeals] = useState([]);
+  //   const [fetchMeals, setFetchMeals] = useState(false);
  
 
-    useEffect(() => {
+  //   useEffect(() => {
      
-      const fetchMeals = async () => {
-        const mealData = await getAllMeals();
-        setMeals(mealData)
-      }
-      fetchMeals();
-    })
+  //     const fetchMeals = async () => {
+  //       const mealData = await getAllMeals();
+  //       setMeals(mealData)
+  //     }
+  //     fetchMeals();
+  //   })
 
-    const classes = useStyles();
+  //   const classes = useStyles();
 
     return (
         <div>
-            <TableContainer className={classes.tableContainer} component={Paper}>
+            {/* <TableContainer className={classes.tableContainer} component={Paper}>
                 <Table stickyHeader className={classes.table} aria-label="customized table">
                   <TableHead className={classes.tableHead}>
                     <TableRow>
@@ -98,7 +98,7 @@ export default function SnacksTable() {
                   </TableBody>
                 </Table>
               </TableContainer>
-            
+             */}
         </div>
     )
 }

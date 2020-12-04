@@ -75,13 +75,13 @@ export default function AddBreakfastModal(props) {
             <form className='sign-up-form'>
                  <input name='name' type='text' className='sign-up-input' placeholder="Meal" value={formData.name} onChange={handleChange}/>
                  <br/>
-                 <input name='calories' type='text' className='sign-up-input' placeholder="Calories" value={formData.calories} onChange={handleChange}/>
-                 <br/>
                  <input name='protein' type='text' className='sign-up-input' placeholder="Protein(g)" value={formData.protein} onChange={handleChange}/>
                  <br/>
                  <input name='carbs' type='text' className='sign-up-input' placeholder="Carbs(g)" value={formData.carbs} onChange={handleChange}/>
                  <br/>
                  <input name='fats' type='text' className='sign-up-input' placeholder="Fats(g)" value={formData.fats} onChange={handleChange}/>
+                 <br/>
+                 <input name='calories' type='text' className='sign-up-input' placeholder="Calories" value={formData.calories} onChange={handleChange}/>
                  <br/>
                  <button type="button" className='save-changes-button' onClick={handleClose}>Add Meal</button>
              </form>
