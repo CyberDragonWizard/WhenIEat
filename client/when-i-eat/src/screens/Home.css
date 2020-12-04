@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&display=swap');
+
+
+.breakfast-table-div {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-left: 180px;
+}
+
+.calorie-counter {
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 5%;
+    font-size: 38px;
+    font-weight: 400;
+    margin-right: 70%;
+    position: 'fixed';
+}
+
+.header-logo-home {
+    z-index: 3;
+}
+
+.other-table-div {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-left: 180px;
+}
+
+.date-menu-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-right: 73%;
+}
+
+.table-div {
+
+}

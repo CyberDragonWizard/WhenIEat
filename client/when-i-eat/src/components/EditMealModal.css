@@ -1,0 +1,20 @@
+.save-changes-button {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    height: 46px;
+    width: 200px;
+    margin-top: 50px;
+    border: none;
+    outline: none;
+    background-color: #19BDC2;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.568);
+    transition: all .2s ease-in-out;
+}
+
+.save-changes-button:hover {
+    background-color: #14898d;
+}

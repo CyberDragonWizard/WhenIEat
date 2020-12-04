@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&display=swap');
+
+.copyright-login {
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(161, 161, 161);
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 10px;
+    text-align: right;
+    margin-right: 20px
+}
+
+.footer {
+    border-top: 2px solid rgb(218, 218, 218);
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: 100px;
+}
+
+.footer-logo {
+    margin-right: 2000px;
+    position: relative;
+    bottom: 48px;
+}
