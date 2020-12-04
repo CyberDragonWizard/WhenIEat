@@ -30,29 +30,33 @@ export default function EditMealModal(props) {
   const [formData, setFormData] = useState({
     name: '',
     calories: null,
-    age: null,
-    height: null,
-    weight: null
+    protein: null,
+    carbs: null,
+    fats: null
   })
   const { id } = useParams();
 
-  // useEffect(() => {
-  //   const prefillForm = () => {
-  //     const mealItem = props.meals.find(meal => meal.id === Number(id));
-  //     setFormData({
-  //       name: mealItem.name
-  //     })
-  //   }
-  //   if (props.meals.length){
-  //     prefillForm();
-  //   }
-  // }, [props.meals])
+  useEffect(() => {
+    const prefillForm = () => {
+      const mealItem = props.meals.find(meal => meal.id === Number(id));
+      setFormData({
+        name: mealItem.name,
+        calories: mealItem.calories,
+        protein: mealItem.protein,
+        carbs: mealItem.carbs,
+        fats: mealItem.fats
+      })
+    }
+    if (props.meals.length){
+      prefillForm();
+    }
+  }, [props.meals])
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prevState => ({
       ...prevState,
-      [name]: value
+      [name]: value,
     }))
   }
   const classes = useStyles();
@@ -65,6 +69,14 @@ export default function EditMealModal(props) {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const handleUpdate = async (id, mealData) => {
+    const updatedFood = await putFood(id, foodData);
+    setFoods(prevState => prevState.map(food => {
+      return food.id === Number(id) ? updatedFood : food
+    }))
+    history.push('/meals');
+  }
 
   return (
     <div>
