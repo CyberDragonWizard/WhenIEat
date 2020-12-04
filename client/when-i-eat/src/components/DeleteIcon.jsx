@@ -35,7 +35,7 @@ export default function DeleteButton(props) {
           meals={meals}
           handleDelete={handleDelete}
           currentUser={props.currentUser}
-          onClick={() => props.handleDelete(meal.id)}
+          onClick={() => props.handleDelete(meals.id)}
           />
 
 

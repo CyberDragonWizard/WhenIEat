@@ -70,6 +70,14 @@ export default function EditMealModal(props) {
     setOpen(false);
   };
 
+  const handleUpdate = async (id, mealData) => {
+    const updatedFood = await putFood(id, foodData);
+    setFoods(prevState => prevState.map(food => {
+      return food.id === Number(id) ? updatedFood : food
+    }))
+    history.push('/meals');
+  }
+
   return (
     <div>
       <div onClick={handleOpen}>
