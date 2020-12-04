@@ -9,8 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import EditMealModal from './EditMealModal';
 import DeleteIcon from './DeleteIcon';
-import { getAllDays } from '../services/days'
-import { destroyMeal, getAllMeals, postMeal, putMeal } from '../services/meals'
+import { getAllMeals } from '../services/meals'
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -47,22 +46,17 @@ const StyledTableCell = withStyles((theme) => ({
     },
   });
 
-export default function BreakfastTable(props) {
+export default function BreakfastTable() {
     const [meals, setMeals] = useState([]);
-    const [days, setDays] = useState([]);
     const [fetchMeals, setFetchMeals] = useState(false);
  
 
     useEffect(() => {
-      const fetchDays = async () => {
-        const dayData = await getAllDays();
-        setDays(dayData);
-      }
+     
       const fetchMeals = async () => {
         const mealData = await getAllMeals();
         setMeals(mealData)
       }
-      fetchDays();
       fetchMeals();
     })
 
