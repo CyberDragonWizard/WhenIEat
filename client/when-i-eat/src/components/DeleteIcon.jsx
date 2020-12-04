@@ -17,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function DeleteButton(props) {
-  const [deleted, setDeleted] = useState(false);
   const [meals, setMeals] = useState([]);
 
   const handleDelete = async (id) => {
@@ -36,7 +35,7 @@ export default function DeleteButton(props) {
           meals={meals}
           handleDelete={handleDelete}
           currentUser={props.currentUser}
-          onClick={() => props.handleDelete(food.id)}
+          onClick={() => props.handleDelete(meal.id)}
           />
 
 
