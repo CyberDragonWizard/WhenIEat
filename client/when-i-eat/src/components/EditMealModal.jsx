@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-import EditIcon from './EditIcon'
+import EditIcon from './EditIcon';
+import { putMeal } from '../services/meals'
 import './EditMealModal.css'
 
 const useStyles = makeStyles((theme) => ({
@@ -27,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function EditMealModal(props) {
+  const [meals, setMeals] = useState([]);
   const [formData, setFormData] = useState({
     name: '',
     calories: null,
@@ -34,6 +36,9 @@ export default function EditMealModal(props) {
     carbs: null,
     fats: null
   })
+
+  const history = useHistory();
+
   const { id } = useParams();
 
   useEffect(() => {
@@ -47,6 +52,7 @@ export default function EditMealModal(props) {
         fats: mealItem.fats
       })
     }
+    prefillForm()
     if (props.meals.length){
       prefillForm();
     }
@@ -71,9 +77,9 @@ export default function EditMealModal(props) {
   };
 
   const handleUpdate = async (id, mealData) => {
-    const updatedFood = await putFood(id, foodData);
-    setFoods(prevState => prevState.map(food => {
-      return food.id === Number(id) ? updatedFood : food
+    const updatedMeal = await putMeal(id, mealData);
+    setMeals(prevState => prevState.map(meal => {
+      return meal.id === Number(id) ? updatedMeal : meal
     }))
     history.push('/meals');
   }
@@ -102,15 +108,15 @@ export default function EditMealModal(props) {
                 e.preventDefault();
                 props.handleUpdate(id, formData);
             }}>
-                 <input name='name' type='text' className='sign-up-input' placeholder="Meal" value={formData.name} onChange={handleChange}></input>
+                 <input meals={meals} handleUpdate={handleUpdate} name='name' type='text' className='sign-up-input' placeholder="Meal" value={formData.name} onChange={handleChange}></input>
                  <br/>
-                 <input name='calories' type='text' className='sign-up-input' placeholder="Calories" value={formData.calories} onChange={handleChange}></input>
+                 <input meals={meals} handleUpdate={handleUpdate} name='calories' type='text' className='sign-up-input' placeholder="Calories" value={formData.calories} onChange={handleChange}></input>
                  <br/>
-                 <input name='protein' type='text' className='sign-up-input' placeholder="Protein" value={formData.protein} onChange={handleChange}></input>
+                 <input meals={meals} handleUpdate={handleUpdate} name='protein' type='text' className='sign-up-input' placeholder="Protein" value={formData.protein} onChange={handleChange}></input>
                  <br/>
-                 <input name='carbs' type='text' className='sign-up-input' placeholder="Carbs(g)" value={formData.carbs} onChange={handleChange}></input>
+                 <input meals={meals} handleUpdate={handleUpdate} name='carbs' type='text' className='sign-up-input' placeholder="Carbs(g)" value={formData.carbs} onChange={handleChange}></input>
                  <br/>
-                 <input name='fats' type='text' className='sign-up-input' placeholder="Fats(g)" value={formData.fats} onChange={handleChange}></input>
+                 <input meals={meals} handleUpdate={handleUpdate} name='fats' type='text' className='sign-up-input' placeholder="Fats(g)" value={formData.fats} onChange={handleChange}></input>
                  <br/>
                  <button type="button" className='save-changes-button' onClick={handleClose}>Save Changes</button>
              </form>

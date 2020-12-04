@@ -3,7 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-import AddIcon from './AddIcon'
+import AddIcon from './AddIcon';
+import { useHistory } from 'react-router-dom';
+import { postMeal } from '../services/meals'
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -25,6 +27,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function AddDinnerModal() {
+  const history = useHistory();
+  const [meals, setMeals] = useState([]);
   const [formData, setFormData] = useState({
     name: '',
     calories: null,
@@ -39,6 +43,12 @@ export default function AddDinnerModal() {
       ...prevState,
       [name]: value
     }))
+  }
+
+  const handleCreate = async (mealData) => {
+    const newMeal = await postMeal(mealData);
+    setMeals(prevState => [...prevState, newMeal]);
+    history.push('/meals');
   }
 
   const classes = useStyles();
@@ -73,15 +83,15 @@ export default function AddDinnerModal() {
           <div className={classes.paper}>
             <h2 className="transition-modal-title">What was for dinner?</h2>
             <form className='sign-up-form'>
-                 <input name='name' type='text' className='sign-up-input' placeholder="Meal" value={formData.name} onChange={handleChange}/>
+                 <input meals={meals} handleCreate={handleCreate} name='name' type='text' className='sign-up-input' placeholder="Meal" value={formData.name} onChange={handleChange}/>
                  <br/>
-                 <input name='calories' type='text' className='sign-up-input' placeholder="Calories" value={formData.calories} onChange={handleChange}/>
+                 <input meals={meals} handleCreate={handleCreate} name='calories' type='text' className='sign-up-input' placeholder="Calories" value={formData.calories} onChange={handleChange}/>
                  <br/>
-                 <input name='protein' type='text' className='sign-up-input' placeholder="Protein(g)" value={formData.protein} onChange={handleChange}/>
+                 <input meals={meals} handleCreate={handleCreate} name='protein' type='text' className='sign-up-input' placeholder="Protein(g)" value={formData.protein} onChange={handleChange}/>
                  <br/>
-                 <input name='carbs' type='text' className='sign-up-input' placeholder="Carbs(g)" value={formData.carbs} onChange={handleChange}/>
+                 <input meals={meals} handleCreate={handleCreate} name='carbs' type='text' className='sign-up-input' placeholder="Carbs(g)" value={formData.carbs} onChange={handleChange}/>
                  <br/>
-                 <input name='fats' type='text' className='sign-up-input' placeholder="Fats(g)" value={formData.fats} onChange={handleChange}/>
+                 <input meals={meals} handleCreate={handleCreate} name='fats' type='text' className='sign-up-input' placeholder="Fats(g)" value={formData.fats} onChange={handleChange}/>
                  <br/>
                  <button type="button" className='save-changes-button' onClick={handleClose}>Add Meal</button>
              </form>

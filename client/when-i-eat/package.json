@@ -19,7 +19,7 @@
   },
   "scripts": {
 
-    "start": "CI = react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
 
 
