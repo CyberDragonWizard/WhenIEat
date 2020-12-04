@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -9,6 +9,8 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import EditMealModal from './EditMealModal';
 import DeleteIcon from './DeleteIcon';
+import { getAllDays } from '../services/days'
+import { destroyMeal, getAllMeals, postMeal, putMeal } from '../services/meals'
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -32,17 +34,6 @@ const StyledTableCell = withStyles((theme) => ({
     },
   }))(TableRow);
   
-  function createData(name, protein, carbs, fats, calories) {
-    return { name, protein, carbs, fats, calories };
-  }
-  
-  const rows = [
-    createData('Egg(3)', 7, 18.0, 8, 240),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    createData('Eclair', 262, 16.0, 24, 6.0),
-    createData('Cupcake', 305, 3.7, 67, 4.3),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
-  ];
   
   const useStyles = makeStyles({
     table: {
@@ -56,7 +47,26 @@ const StyledTableCell = withStyles((theme) => ({
     },
   });
 
-export default function BreakfastTable() {
+export default function BreakfastTable(props) {
+    const [meals, setMeals] = useState([]);
+    const [days, setDays] = useState([]);
+    const [fetchMeals, setFetchMeals] = useState(false);
+ 
+
+    useEffect(() => {
+      const fetchDays = async () => {
+        const dayData = await getAllDays();
+        setDays(dayData);
+      }
+      const fetchMeals = async () => {
+        const mealData = await getAllMeals();
+        setMeals(mealData)
+      }
+      fetchDays();
+      fetchMeals();
+    })
+
+
     const classes = useStyles();
 
     return (
@@ -75,16 +85,21 @@ export default function BreakfastTable() {
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {rows.map((row) => (
-                      <StyledTableRow key={row.name}>
-                        <DeleteIcon />
+                    {meals.map((meal) => (
+                      <StyledTableRow key={meal.name}>
+                        <DeleteIcon
+                        key={meal.id}
+                        item={meal}
+                        fetchMeals={fetchMeals}
+                        setFetchItems={setFetchMeals}
+                         />
                         <StyledTableCell component="th" scope="row">
-                          {row.name}
+                          {meal.name}
                         </StyledTableCell>
-                        <StyledTableCell align="center">{row.protein}</StyledTableCell>
-                        <StyledTableCell align="center">{row.carbs}</StyledTableCell>
-                        <StyledTableCell align="center">{row.fats}</StyledTableCell>
-                        <StyledTableCell align="center">{row.calories}</StyledTableCell>
+                        <StyledTableCell align="center">{meal.protein}</StyledTableCell>
+                        <StyledTableCell align="center">{meal.carbs}</StyledTableCell>
+                        <StyledTableCell align="center">{meal.fats}</StyledTableCell>
+                        <StyledTableCell align="center">{meal.calories}</StyledTableCell>
                         <EditMealModal className='editIcon'/>
                        </StyledTableRow>
                       ))}
