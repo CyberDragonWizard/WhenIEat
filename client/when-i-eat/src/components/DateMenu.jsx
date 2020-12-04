@@ -38,7 +38,7 @@ const StyledMenuItem = withStyles((theme) => ({
   },
 }))(MenuItem);
 
-export default function DateMenu() {
+export default function DateMenu(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -84,13 +84,11 @@ export default function DateMenu() {
         onClose={handleClose}
       >
         <StyledMenuItem >
-          <ListItemText align='center' primary="0/0/0001"/>
-        </StyledMenuItem>
-        <StyledMenuItem>
-          <ListItemText align='center' primary="0/0/0001" />
-        </StyledMenuItem>
-        <StyledMenuItem>
-          <ListItemText align='center' primary="0/0/0002" />
+          {/* {
+            props.days.map(day => (
+          <ListItemText key={day.id} align='center' primary={day.date}/>
+          ))
+        } */}
         </StyledMenuItem>
       </StyledMenu>
     </div>

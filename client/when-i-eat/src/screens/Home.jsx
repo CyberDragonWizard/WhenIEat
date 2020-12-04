@@ -23,7 +23,7 @@ function Home() {
         <div>
             <Header />
             <img className='header-logo-home' src={LogoImg} alt='logo' height='110' width='110' />
-            <div classname='table-div'>
+            <div className='table-div'>
             <h2 className='calorie-counter'>Calories: 0</h2>
             <div className='date-menu-div'>
               <AddDateModal/>
