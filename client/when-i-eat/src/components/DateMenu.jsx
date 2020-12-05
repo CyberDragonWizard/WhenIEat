@@ -96,9 +96,7 @@ export default function DateMenu(props) {
       >
         {days.map((day) => (
         <StyledMenuItem >
-    
           <ListItemText align='center'>{day.date}</ListItemText>
-          
         </StyledMenuItem>
         ))}
       </StyledMenu>
