@@ -38,8 +38,9 @@ class DaysController < ApplicationController
   
     # DELETE /days/1
     def destroy
+      @day = Day.find(params[:id])
       @day.destroy
-    end
+  end
   
     def add_meal
       @meal = meal.find(params[:meal_id])

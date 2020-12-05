@@ -46,23 +46,7 @@ const StyledTableCell = withStyles((theme) => ({
   });
 
 export default function BreakfastTable(props) {
-    const [meals, setMeals] = useState([]);
     
-    useEffect(() => {
-     
-      const fetchMeals = async () => {
-        const mealData = await getAllMeals();
-        setMeals(mealData)
-      }
-      fetchMeals();
-    }, [])
-
-    const handleDelete = async (id) => {
-      await destroyMeal(id);
-      setMeals(prevState => prevState.filter(meal => meal.id !== id))
-    }
-
-
     const classes = useStyles();
 
     return (
@@ -81,16 +65,15 @@ export default function BreakfastTable(props) {
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {meals.map((meal) => (
+                    {props.meals.map((meal) => (
                       <React.Fragment key={meal.id}>
                         {
                           meal.user_id === props.currentUser?.id &&
                           <>
                       <StyledTableRow key={meal.name}>
                         <DeleteIcon
-                        onClick={(meal) => props.handleDelete(meal.id)}
-                        meals={meals}
-                        handleDelete={handleDelete}
+                        meal={meal}
+                        handleDelete={props.handleDelete}
                         currentUser={props.currentUser}
                          />
                         <StyledTableCell component="th" scope="row">
@@ -100,7 +83,10 @@ export default function BreakfastTable(props) {
                         <StyledTableCell align="center">{meal.carbs}</StyledTableCell>
                         <StyledTableCell align="center">{meal.fats}</StyledTableCell>
                         <StyledTableCell align="center">{meal.calories}</StyledTableCell>
-                        <EditMealModal className='editIcon'/>
+                        <EditMealModal
+                        handleUpdate={props.handleUpdate}
+                        meal={meal}
+                        className='editIcon'/>
                        </StyledTableRow>
                        </>
                        }

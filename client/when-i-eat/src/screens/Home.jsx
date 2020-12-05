@@ -17,7 +17,7 @@ import './Home.css';
 
 
 
-function Home() {
+function Home(props) {
 
     return (
         <div>
@@ -27,12 +27,21 @@ function Home() {
       
               <div className='date-menu-div'>
                 <AddDateModal/>
-                < DateMenu />
+                < DateMenu
+                setCurrentDay={props.setCurrentDay}
+                 />
               </div>
 
               <div className='breakfast-table-div'>
-                <AddBreakfastModal />
-                <BreakfastTable />
+                <AddBreakfastModal 
+                handleCreate={props.handleCreate}
+                />
+                <BreakfastTable
+                meals={props.meals}
+                handleDelete={props.handleDelete}
+                setEditingId={props.setEditingId}
+                handleUpdate={props.handleUpdate}
+                />
               </div>
 
               <div className='other-table-div'>
