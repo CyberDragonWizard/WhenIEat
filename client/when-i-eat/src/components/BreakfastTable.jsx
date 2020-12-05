@@ -55,7 +55,7 @@ export default function BreakfastTable(props) {
         setMeals(mealData)
       }
       fetchMeals();
-    })
+    }, [])
 
     const handleDelete = async (id) => {
       await destroyMeal(id);
