@@ -21,20 +21,9 @@ export default function DeleteButton(props) {
   return (
     <div>
       <IconButton aria-label="delete" className={classes.margin}>
-      {
-        props.meals.map(meal => (
-          <React.Fragment key={meal.id}>
-          {
-            meal.user_id === props.currentUser?.id &&
-            <>
           <DeleteIcon 
-          onClick={() => props.handleDelete(meal.id)}
+          onClick={(meal) => props.handleDelete(meal.id)}
           />
-          </>
-        }
-        </React.Fragment>
-        ))
-      }
       </IconButton>
     </div>
   );

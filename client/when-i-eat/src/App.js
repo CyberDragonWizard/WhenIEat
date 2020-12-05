@@ -42,8 +42,8 @@ function App() {
   }
 
   return (
-    <Switch>
       <div className="App">
+        <Switch>
 
         <Route exact path='/'>
           <Login handleLogin={handleLogin} handleRegister={handleRegister}/>
@@ -60,9 +60,8 @@ function App() {
         <Route exact path='/stats'>
           <Stats />
         </Route>
-
+        </Switch>
       </div>
-    </Switch>
   );
 }
 
