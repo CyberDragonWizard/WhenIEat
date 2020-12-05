@@ -9,6 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import EditMealModal from './EditMealModal';
 import DeleteIcon from './DeleteIcon';
+import { destroyMeal } from '../services/meals'
 import { getAllMeals } from '../services/meals'
 
 const StyledTableCell = withStyles((theme) => ({
@@ -44,11 +45,8 @@ const StyledTableCell = withStyles((theme) => ({
     },
   });
 
-export default function BreakfastTable() {
+export default function BreakfastTable(props) {
     const [meals, setMeals] = useState([]);
-    const [fetchMeals, setFetchMeals] = useState(false);
- 
-
     useEffect(() => {
      
       const fetchMeals = async () => {
@@ -57,6 +55,11 @@ export default function BreakfastTable() {
       }
       fetchMeals();
     })
+
+    const handleDelete = async (id) => {
+      await destroyMeal(id);
+      setMeals(prevState => prevState.filter(meal => meal.id !== id))
+    }
 
 
     const classes = useStyles();
@@ -80,10 +83,9 @@ export default function BreakfastTable() {
                     {meals.map((meal) => (
                       <StyledTableRow key={meal.name}>
                         <DeleteIcon
-                        key={meal.id}
-                        item={meal}
-                        fetchMeals={fetchMeals}
-                        setFetchItems={setFetchMeals}
+                        meals={meals}
+                        handleDelete={handleDelete}
+                        currentUser={props.currentUser}
                          />
                         <StyledTableCell component="th" scope="row">
                           {meal.name}
