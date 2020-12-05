@@ -41,22 +41,22 @@ export default function EditMealModal(props) {
 
   const { id } = useParams();
 
-  useEffect(() => {
-    const prefillForm = () => {
-      const mealItem = props.meals.find(meal => meal.id === Number(id));
-      setFormData({
-        name: mealItem.name,
-        calories: mealItem.calories,
-        protein: mealItem.protein,
-        carbs: mealItem.carbs,
-        fats: mealItem.fats
-      })
-    }
-    prefillForm()
-    if (props.meals.length){
-      prefillForm();
-    }
-  }, [props.meals])
+  // useEffect(() => {
+  //   const prefillForm = () => {
+  //     const mealItem = props.meals.find(meal => meal.id === Number(id));
+  //     setFormData({
+  //       name: mealItem.name,
+  //       calories: mealItem.calories,
+  //       protein: mealItem.protein,
+  //       carbs: mealItem.carbs,
+  //       fats: mealItem.fats
+  //     })
+  //   }
+  //   prefillForm()
+  //   if (props.meals.length){
+  //     prefillForm();
+  //   }
+  // }, [props.meals])
 
   const handleChange = (e) => {
     const { name, value } = e.target;
