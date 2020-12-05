@@ -36,11 +36,9 @@ const StyledTableCell = withStyles((theme) => ({
   
   const useStyles = makeStyles({
     table: {
-      // marginRight: '100px',
     },
     tableContainer: {
         boxShadow: '0 0 3px 3px rgba(0, 0, 0, 0.573)',
-        // width: '1100px',
         maxHeight: '300px',
         marginRight: '100px',
     },
