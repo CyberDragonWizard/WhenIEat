@@ -7,8 +7,9 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import EditIcon from './EditIcon';
+import EditMealModal from './EditMealModal';
 import DeleteIcon from './DeleteIcon';
+import { destroyMeal } from '../services/meals';
 import { getAllMeals } from '../services/meals'
 
 const StyledTableCell = withStyles((theme) => ({
@@ -33,6 +34,7 @@ const StyledTableCell = withStyles((theme) => ({
     },
   }))(TableRow);
   
+  
   const useStyles = makeStyles({
     table: {
     },
@@ -43,11 +45,9 @@ const StyledTableCell = withStyles((theme) => ({
     },
   });
 
-export default function SnacksTable() {
-  const [meals, setMeals] = useState([]);
-    const [fetchMeals, setFetchMeals] = useState(false);
- 
-
+export default function SnacksTable(props) {
+    const [meals, setMeals] = useState([]);
+    
     useEffect(() => {
      
       const fetchMeals = async () => {
@@ -56,6 +56,12 @@ export default function SnacksTable() {
       }
       fetchMeals();
     }, [])
+
+    const handleDelete = async (id) => {
+      await destroyMeal(id);
+      setMeals(prevState => prevState.filter(meal => meal.id !== id))
+    }
+
 
     const classes = useStyles();
 
@@ -66,7 +72,7 @@ export default function SnacksTable() {
                   <TableHead className={classes.tableHead}>
                     <TableRow>
                     <StyledTableCell></StyledTableCell>
-                      <StyledTableCell>Snacks</StyledTableCell>
+                      <StyledTableCell >Breakfast</StyledTableCell>
                       <StyledTableCell align="center">Protein&nbsp;(g)</StyledTableCell>
                       <StyledTableCell align="center">Carbs&nbsp;(g)</StyledTableCell>
                       <StyledTableCell align="center">Fats&nbsp;(g)</StyledTableCell>
@@ -76,13 +82,17 @@ export default function SnacksTable() {
                   </TableHead>
                   <TableBody>
                     {meals.map((meal) => (
+                      <React.Fragment key={meal.id}>
+                        {
+                          meal.user_id === props.currentUser?.id &&
+                          <>
                       <StyledTableRow key={meal.name}>
-                        <DeleteIcon 
-                        key={meal.id}
-                        item={meal}
-                        fetchMeals={fetchMeals}
-                        setFetchItems={setFetchMeals}
-                        />
+                        <DeleteIcon
+                        onClick={(meal) => props.handleDelete(meal.id)}
+                        meals={meals}
+                        handleDelete={handleDelete}
+                        currentUser={props.currentUser}
+                         />
                         <StyledTableCell component="th" scope="row">
                           {meal.name}
                         </StyledTableCell>
@@ -90,8 +100,11 @@ export default function SnacksTable() {
                         <StyledTableCell align="center">{meal.carbs}</StyledTableCell>
                         <StyledTableCell align="center">{meal.fats}</StyledTableCell>
                         <StyledTableCell align="center">{meal.calories}</StyledTableCell>
-                        <EditIcon className='editIcon'/>
+                        <EditMealModal className='editIcon'/>
                        </StyledTableRow>
+                       </>
+                       }
+                       </React.Fragment>
                       ))}
                   </TableBody>
                 </Table>

@@ -9,7 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import EditMealModal from './EditMealModal';
 import DeleteIcon from './DeleteIcon';
-import { destroyMeal } from '../services/meals'
+import { destroyMeal } from '../services/meals';
 import { getAllMeals } from '../services/meals'
 
 const StyledTableCell = withStyles((theme) => ({
