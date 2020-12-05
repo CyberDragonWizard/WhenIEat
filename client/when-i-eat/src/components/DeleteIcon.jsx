@@ -22,7 +22,7 @@ export default function DeleteButton(props) {
     <div>
       <IconButton aria-label="delete" className={classes.margin}>
           <DeleteIcon 
-          // onClick={(meal) => props.handleDelete(meal.id)}
+          onClick={(meal) => props.handleDelete(meal.id)}
           />
       </IconButton>
     </div>
