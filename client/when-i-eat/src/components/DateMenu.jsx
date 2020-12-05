@@ -50,7 +50,7 @@ export default function DateMenu(props) {
       setDays(dayData)
     }
     fetchDays();
-  })
+  }, [])
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
