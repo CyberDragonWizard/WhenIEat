@@ -47,6 +47,7 @@ const StyledTableCell = withStyles((theme) => ({
 
 export default function BreakfastTable(props) {
     const [meals, setMeals] = useState([]);
+    
     useEffect(() => {
      
       const fetchMeals = async () => {
