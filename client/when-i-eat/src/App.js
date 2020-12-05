@@ -54,7 +54,7 @@ function App() {
         </Route>
 
         <Route exact path='/home'>
-          <Home />
+          <Home currentUser={currentUser}/>
         </Route>
 
         <Route exact path='/stats'>
