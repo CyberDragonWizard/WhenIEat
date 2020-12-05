@@ -8,15 +8,13 @@
     justify-content: center;
     align-items: center;
     padding-left: 180px;
+    margin-right: 300px;
 }
 
 .calorie-counter {
     font-family: 'Montserrat', sans-serif;
-    margin-top: 5%;
     font-size: 38px;
     font-weight: 400;
-    margin-right: 70%;
-    position: 'fixed';
 }
 
 .header-logo-home {
@@ -30,6 +28,7 @@
     justify-content: center;
     align-items: center;
     padding-left: 180px;
+    margin-right: 300px;
 }
 
 .date-menu-div {
@@ -41,5 +40,5 @@
 }
 
 .table-div {
-
+    margin-left: 210px;
 }
