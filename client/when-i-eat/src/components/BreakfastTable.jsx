@@ -81,13 +81,14 @@ export default function BreakfastTable(props) {
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {props.meals.map((meal) => (
+                    {meals.map((meal) => (
                       <React.Fragment key={meal.id}>
                         {
                           meal.user_id === props.currentUser?.id &&
                           <>
                       <StyledTableRow key={meal.name}>
                         <DeleteIcon
+                        onClick={(meal) => props.handleDelete(meal.id)}
                         meals={meals}
                         handleDelete={handleDelete}
                         currentUser={props.currentUser}

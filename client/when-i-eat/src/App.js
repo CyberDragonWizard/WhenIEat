@@ -41,6 +41,8 @@ function App() {
     history.push('/');
   }
 
+  
+
   return (
       <div className="App">
         <Switch>
