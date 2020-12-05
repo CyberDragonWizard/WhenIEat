@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import { getAllDays } from '../services/days';
 
 
 const StyledMenu = withStyles({
@@ -39,7 +40,17 @@ const StyledMenuItem = withStyles((theme) => ({
 }))(MenuItem);
 
 export default function DateMenu(props) {
+  const [days, setDays] = useState([]);
   const [anchorEl, setAnchorEl] = React.useState(null);
+
+  useEffect(() => {
+     
+    const fetchDays = async () => {
+      const dayData = await getAllDays();
+      setDays(dayData)
+    }
+    fetchDays();
+  })
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -83,13 +94,13 @@ export default function DateMenu(props) {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
+        {days.map((day) => (
         <StyledMenuItem >
-          {/* {
-            props.days.map(day => (
-          <ListItemText key={day.id} align='center' primary={day.date}/>
-          ))
-        } */}
+    
+          <ListItemText align='center'>{day.date}</ListItemText>
+          
         </StyledMenuItem>
+        ))}
       </StyledMenu>
     </div>
   );
