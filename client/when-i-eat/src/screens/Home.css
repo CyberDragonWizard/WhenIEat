@@ -32,11 +32,13 @@
 }
 
 .date-menu-div {
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     margin-right: 73%;
+    margin-top: 130px;
 }
 
 .table-div {

@@ -24,31 +24,31 @@ function Home() {
             <Header />
             <img className='header-logo-home' src={LogoImg} alt='logo' height='110' width='110' />
             <div className='table-div'>
-            <h2 className='calorie-counter'>Calories: 0</h2>
-            <div className='date-menu-div'>
-              <AddDateModal/>
-              <DateMenu />
-            </div>
+      
+              <div className='date-menu-div'>
+                <AddDateModal/>
+                < DateMenu />
+              </div>
 
-            <div className='breakfast-table-div'>
-              <AddBreakfastModal />
-              <BreakfastTable />
-            </div>
+              <div className='breakfast-table-div'>
+                <AddBreakfastModal />
+                <BreakfastTable />
+              </div>
 
-            <div className='other-table-div'>
-              <AddLunchModal />
-              <LunchTable />
-            </div>
+              <div className='other-table-div'>
+                <AddLunchModal />
+                <LunchTable />
+              </div>
 
-            <div className='other-table-div'>
-              <AddDinnerModal />
-              <DinnerTable />
-            </div>
+              <div className='other-table-div'>
+                <AddDinnerModal />
+                <DinnerTable />
+              </div>
 
-            <div className='other-table-div'>
-              <AddSnacksModal />
-              <SnacksTable />
-            </div>
+              <div className='other-table-div'>
+                <AddSnacksModal />
+                <SnacksTable />
+              </div>
             </div>
 
             <Navbar />
