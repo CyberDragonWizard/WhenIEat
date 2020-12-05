@@ -41,6 +41,8 @@ function App() {
     history.push('/');
   }
 
+  
+
   return (
       <div className="App">
         <Switch>
@@ -54,7 +56,7 @@ function App() {
         </Route>
 
         <Route exact path='/home'>
-          <Home />
+          <Home currentUser={currentUser}/>
         </Route>
 
         <Route exact path='/stats'>

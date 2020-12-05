@@ -82,8 +82,13 @@ export default function BreakfastTable(props) {
                   </TableHead>
                   <TableBody>
                     {meals.map((meal) => (
+                      <React.Fragment key={meal.id}>
+                        {
+                          meal.user_id === props.currentUser?.id &&
+                          <>
                       <StyledTableRow key={meal.name}>
                         <DeleteIcon
+                        onClick={(meal) => props.handleDelete(meal.id)}
                         meals={meals}
                         handleDelete={handleDelete}
                         currentUser={props.currentUser}
@@ -97,6 +102,9 @@ export default function BreakfastTable(props) {
                         <StyledTableCell align="center">{meal.calories}</StyledTableCell>
                         <EditMealModal className='editIcon'/>
                        </StyledTableRow>
+                       </>
+                       }
+                       </React.Fragment>
                       ))}
                   </TableBody>
                 </Table>
