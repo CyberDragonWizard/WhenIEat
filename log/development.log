@@ -19552,3 +19552,188 @@ Processing by AuthenticationController#verify as HTML
 Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 896)
 
 
+Started POST "/meals" for ::1 at 2020-12-06 18:04:50 -0500
+Processing by MealsController#create as HTML
+  Parameters: {"meal"=>{"name"=>"Egg(3)", "calories"=>"210", "protein"=>"9", "carbs"=>"15", "fats"=>"7"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 422 Unprocessable Entity in 3ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 1451)
+
+
+Started GET "/meals" for ::1 at 2020-12-06 18:07:20 -0500
+Started GET "/days" for ::1 at 2020-12-06 18:07:20 -0500
+Processing by MealsController#index as HTML
+  [1m[36mMeal Load (0.4ms)[0m  [1m[34mSELECT "meals".* FROM "meals"[0m
+  ↳ app/controllers/meals_controller.rb:8:in `index'
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.4ms | Allocations: 871)
+
+
+Started GET "/auth/verify" for ::1 at 2020-12-06 18:07:20 -0500
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 1215)
+
+
+Processing by DaysController#index as HTML
+  [1m[36mDay Load (0.8ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:10:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.8ms | Allocations: 1583)
+
+
+Started POST "/meals" for ::1 at 2020-12-06 18:07:47 -0500
+Processing by MealsController#create as HTML
+  Parameters: {"meal"=>{"name"=>"Egg", "calories"=>"90", "protein"=>"6", "carbs"=>"15", "fats"=>"25", "day_id"=>1}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/meals_controller.rb:18:in `create'
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/meals_controller.rb:18:in `create'
+  [1m[36mMeal Create (0.6ms)[0m  [1m[32mINSERT INTO "meals" ("name", "day_id", "calories", "protein", "carbs", "fats", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Egg"], ["day_id", 1], ["calories", 90], ["protein", 6], ["carbs", 15], ["fats", 25], ["created_at", "2020-12-06 23:07:47.367351"], ["updated_at", "2020-12-06 23:07:47.367351"]]
+  ↳ app/controllers/meals_controller.rb:18:in `create'
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/meals_controller.rb:18:in `create'
+Completed 201 Created in 10ms (Views: 0.4ms | ActiveRecord: 4.0ms | Allocations: 4588)
+
+
+Started PUT "/meals/24" for ::1 at 2020-12-06 18:08:35 -0500
+Processing by MealsController#update as HTML
+  Parameters: {"meal"=>{"name"=>"Egg", "calories"=>90, "protein"=>6, "carbs"=>15, "fats"=>"250"}, "id"=>"24"}
+  [1m[36mMeal Load (0.2ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/meals_controller.rb:26:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/meals_controller.rb:27:in `update'
+  [1m[36mDay Load (0.3ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/meals_controller.rb:27:in `update'
+  [1m[36mMeal Update (0.3ms)[0m  [1m[33mUPDATE "meals" SET "fats" = $1, "updated_at" = $2 WHERE "meals"."id" = $3[0m  [["fats", 250], ["updated_at", "2020-12-06 23:08:35.619773"], ["id", 24]]
+  ↳ app/controllers/meals_controller.rb:27:in `update'
+  [1m[35m (8.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/meals_controller.rb:27:in `update'
+Completed 200 OK in 15ms (Views: 0.3ms | ActiveRecord: 9.8ms | Allocations: 4467)
+
+
+Started PUT "/meals/24" for ::1 at 2020-12-06 18:08:42 -0500
+Processing by MealsController#update as HTML
+  Parameters: {"meal"=>{"name"=>"Egg", "calories"=>90, "protein"=>6, "carbs"=>"152", "fats"=>"250"}, "id"=>"24"}
+  [1m[36mMeal Load (0.2ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/meals_controller.rb:26:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/meals_controller.rb:27:in `update'
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/meals_controller.rb:27:in `update'
+  [1m[36mMeal Update (0.4ms)[0m  [1m[33mUPDATE "meals" SET "carbs" = $1, "updated_at" = $2 WHERE "meals"."id" = $3[0m  [["carbs", 152], ["updated_at", "2020-12-06 23:08:42.706949"], ["id", 24]]
+  ↳ app/controllers/meals_controller.rb:27:in `update'
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/meals_controller.rb:27:in `update'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 3.3ms | Allocations: 4465)
+
+
+Started GET "/meals" for ::1 at 2020-12-06 18:08:53 -0500
+Started GET "/days" for ::1 at 2020-12-06 18:08:53 -0500
+Processing by MealsController#index as HTML
+Processing by DaysController#index as HTML
+Started GET "/auth/verify" for ::1 at 2020-12-06 18:08:53 -0500
+  [1m[36mMeal Load (0.8ms)[0m  [1m[34mSELECT "meals".* FROM "meals"[0m
+  ↳ app/controllers/meals_controller.rb:8:in `index'
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.8ms | Allocations: 1795)
+
+
+  [1m[36mDay Load (1.9ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:10:in `index'
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 1.9ms | Allocations: 3027)
+
+
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 989)
+
+
+Started PUT "/meals/24" for ::1 at 2020-12-06 18:08:59 -0500
+Processing by MealsController#update as HTML
+  Parameters: {"meal"=>{"name"=>"Egg", "calories"=>90, "protein"=>6, "carbs"=>152, "fats"=>"2500"}, "id"=>"24"}
+  [1m[36mMeal Load (0.2ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/meals_controller.rb:26:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/meals_controller.rb:27:in `update'
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/meals_controller.rb:27:in `update'
+  [1m[36mMeal Update (0.2ms)[0m  [1m[33mUPDATE "meals" SET "fats" = $1, "updated_at" = $2 WHERE "meals"."id" = $3[0m  [["fats", 2500], ["updated_at", "2020-12-06 23:08:59.320403"], ["id", 24]]
+  ↳ app/controllers/meals_controller.rb:27:in `update'
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/meals_controller.rb:27:in `update'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 3.0ms | Allocations: 4472)
+
+
+Started PUT "/meals/24" for ::1 at 2020-12-06 18:09:27 -0500
+Processing by MealsController#update as HTML
+  Parameters: {"meal"=>{"name"=>"Egg", "calories"=>90, "protein"=>6, "carbs"=>152, "fats"=>"250r"}, "id"=>"24"}
+  [1m[36mMeal Load (0.2ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/meals_controller.rb:26:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/meals_controller.rb:27:in `update'
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/meals_controller.rb:27:in `update'
+  [1m[36mMeal Update (0.3ms)[0m  [1m[33mUPDATE "meals" SET "fats" = $1, "updated_at" = $2 WHERE "meals"."id" = $3[0m  [["fats", 250], ["updated_at", "2020-12-06 23:09:27.430634"], ["id", 24]]
+  ↳ app/controllers/meals_controller.rb:27:in `update'
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/meals_controller.rb:27:in `update'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 2.9ms | Allocations: 4464)
+
+
+Started PUT "/meals/24" for ::1 at 2020-12-06 18:09:32 -0500
+Processing by MealsController#update as HTML
+  Parameters: {"meal"=>{"name"=>"Egg", "calories"=>90, "protein"=>6, "carbs"=>152, "fats"=>"2509"}, "id"=>"24"}
+  [1m[36mMeal Load (0.2ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/meals_controller.rb:26:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/meals_controller.rb:27:in `update'
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/meals_controller.rb:27:in `update'
+  [1m[36mMeal Update (0.5ms)[0m  [1m[33mUPDATE "meals" SET "fats" = $1, "updated_at" = $2 WHERE "meals"."id" = $3[0m  [["fats", 2509], ["updated_at", "2020-12-06 23:09:32.005221"], ["id", 24]]
+  ↳ app/controllers/meals_controller.rb:27:in `update'
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/meals_controller.rb:27:in `update'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 3.2ms | Allocations: 4468)
+
+
+Started PUT "/meals/24" for ::1 at 2020-12-06 18:09:35 -0500
+Processing by MealsController#update as HTML
+  Parameters: {"meal"=>{"name"=>"Egg", "calories"=>90, "protein"=>6, "carbs"=>152, "fats"=>"25"}, "id"=>"24"}
+  [1m[36mMeal Load (0.2ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/meals_controller.rb:26:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/meals_controller.rb:27:in `update'
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/meals_controller.rb:27:in `update'
+  [1m[36mMeal Update (0.3ms)[0m  [1m[33mUPDATE "meals" SET "fats" = $1, "updated_at" = $2 WHERE "meals"."id" = $3[0m  [["fats", 25], ["updated_at", "2020-12-06 23:09:35.322996"], ["id", 24]]
+  ↳ app/controllers/meals_controller.rb:27:in `update'
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/meals_controller.rb:27:in `update'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 3.0ms | Allocations: 4464)
+
+
+Started PUT "/meals/24" for ::1 at 2020-12-06 18:12:30 -0500
+Processing by MealsController#update as HTML
+  Parameters: {"meal"=>{"name"=>"Egg", "protein"=>6, "carbs"=>152, "fats"=>25, "calories"=>"904"}, "id"=>"24"}
+  [1m[36mMeal Load (0.1ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/meals_controller.rb:26:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/meals_controller.rb:27:in `update'
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/meals_controller.rb:27:in `update'
+  [1m[36mMeal Update (0.3ms)[0m  [1m[33mUPDATE "meals" SET "calories" = $1, "updated_at" = $2 WHERE "meals"."id" = $3[0m  [["calories", 904], ["updated_at", "2020-12-06 23:12:30.436943"], ["id", 24]]
+  ↳ app/controllers/meals_controller.rb:27:in `update'
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/meals_controller.rb:27:in `update'
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 2.9ms | Allocations: 4462)
+
+
+Started GET "/days" for ::1 at 2020-12-06 18:12:46 -0500
+Processing by DaysController#index as HTML
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:10:in `index'
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.2ms | Allocations: 1510)
+
+
