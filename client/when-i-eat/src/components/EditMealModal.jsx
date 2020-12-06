@@ -28,7 +28,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function EditMealModal(props) {
-  const [meals, setMeals] = useState([]);
   const [formData, setFormData] = useState({
     name: '',
     calories: null,
@@ -37,26 +36,17 @@ export default function EditMealModal(props) {
     fats: null
   })
 
-  const history = useHistory();
-
-  const { id } = useParams();
-
-  // useEffect(() => {
-  //   const prefillForm = () => {
-  //     const mealItem = props.meals.find(meal => meal.id === Number(id));
-  //     setFormData({
-  //       name: mealItem.name,
-  //       calories: mealItem.calories,
-  //       protein: mealItem.protein,
-  //       carbs: mealItem.carbs,
-  //       fats: mealItem.fats
-  //     })
-  //   }
-  //   prefillForm()
-  //   if (props.meals.length){
-  //     prefillForm();
-  //   }
-  // }, [props.meals])
+  useEffect(() => {
+    const prefillForm = () => {
+      const {name, calories, protein, carbs, fats} = props.meal
+      setFormData({
+        name, calories, protein, carbs, fats
+      })
+    }
+     if (props.meal) {
+       prefillForm()
+     }
+  }, [])
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -75,14 +65,6 @@ export default function EditMealModal(props) {
   const handleClose = () => {
     setOpen(false);
   };
-
-  const handleUpdate = async (id, mealData) => {
-    const updatedMeal = await putMeal(id, mealData);
-    setMeals(prevState => prevState.map(meal => {
-      return meal.id === Number(id) ? updatedMeal : meal
-    }))
-    history.push('/meals');
-  }
 
   return (
     <div>
@@ -106,19 +88,20 @@ export default function EditMealModal(props) {
             <h2 className="transition-modal-title">Edit Your Meal.</h2>
             <form className='sign-up-form' onSubmit={(e) => {
                 e.preventDefault();
-                props.handleUpdate(id, formData);
+                props.handleUpdate(props.meal.id, formData);
+                handleClose();
             }}>
-                 <input meals={meals} handleUpdate={handleUpdate} name='name' type='text' className='sign-up-input' placeholder="Meal" value={formData.name} onChange={handleChange}></input>
+                 <input name='name' type='text' className='sign-up-input' placeholder="Meal" value={formData.name} onChange={handleChange}></input>
                  <br/>
-                 <input meals={meals} handleUpdate={handleUpdate} name='calories' type='text' className='sign-up-input' placeholder="Calories" value={formData.calories} onChange={handleChange}></input>
+                 <input name='calories' type='text' className='sign-up-input' placeholder="Calories" value={formData.calories} onChange={handleChange}></input>
                  <br/>
-                 <input meals={meals} handleUpdate={handleUpdate} name='protein' type='text' className='sign-up-input' placeholder="Protein" value={formData.protein} onChange={handleChange}></input>
+                 <input name='protein' type='text' className='sign-up-input' placeholder="Protein" value={formData.protein} onChange={handleChange}></input>
                  <br/>
-                 <input meals={meals} handleUpdate={handleUpdate} name='carbs' type='text' className='sign-up-input' placeholder="Carbs(g)" value={formData.carbs} onChange={handleChange}></input>
+                 <input name='carbs' type='text' className='sign-up-input' placeholder="Carbs(g)" value={formData.carbs} onChange={handleChange}></input>
                  <br/>
-                 <input meals={meals} handleUpdate={handleUpdate} name='fats' type='text' className='sign-up-input' placeholder="Fats(g)" value={formData.fats} onChange={handleChange}></input>
+                 <input name='fats' type='text' className='sign-up-input' placeholder="Fats(g)" value={formData.fats} onChange={handleChange}></input>
                  <br/>
-                 <button type="button" className='save-changes-button' onClick={handleClose}>Save Changes</button>
+                 <button type="submit" className='save-changes-button'>Save Changes</button>
              </form>
           </div>
         </Fade>

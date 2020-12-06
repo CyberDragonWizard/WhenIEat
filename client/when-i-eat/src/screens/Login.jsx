@@ -51,9 +51,9 @@ function Login(props) {
                  />
                  <br/>
                  <div className='button-div'>
-                 <NavLink to='/home'>
+                 {/* <NavLink to='/home'> */}
                     <button type='submit' className='button'>Log In</button>
-                 </NavLink>
+                 {/* </NavLink> */}
                  </div>
              </form>
              <h3 className='welcome-message'>Or</h3>

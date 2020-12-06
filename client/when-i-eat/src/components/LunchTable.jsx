@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -9,8 +9,6 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import EditMealModal from './EditMealModal';
 import DeleteIcon from './DeleteIcon';
-import { destroyMeal } from '../services/meals';
-import { getAllMeals } from '../services/meals'
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -46,23 +44,7 @@ const StyledTableCell = withStyles((theme) => ({
   });
 
 export default function LunchTable(props) {
-    const [meals, setMeals] = useState([]);
     
-    useEffect(() => {
-     
-      const fetchMeals = async () => {
-        const mealData = await getAllMeals();
-        setMeals(mealData)
-      }
-      fetchMeals();
-    }, [])
-
-    const handleDelete = async (id) => {
-      await destroyMeal(id);
-      setMeals(prevState => prevState.filter(meal => meal.id !== id))
-    }
-
-
     const classes = useStyles();
 
     return (
@@ -72,7 +54,7 @@ export default function LunchTable(props) {
                   <TableHead className={classes.tableHead}>
                     <TableRow>
                     <StyledTableCell></StyledTableCell>
-                      <StyledTableCell >Breakfast</StyledTableCell>
+                      <StyledTableCell >Lunch</StyledTableCell>
                       <StyledTableCell align="center">Protein&nbsp;(g)</StyledTableCell>
                       <StyledTableCell align="center">Carbs&nbsp;(g)</StyledTableCell>
                       <StyledTableCell align="center">Fats&nbsp;(g)</StyledTableCell>
@@ -81,16 +63,15 @@ export default function LunchTable(props) {
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {meals.map((meal) => (
+                    {props.meals.map((meal) => (
                       <React.Fragment key={meal.id}>
                         {
                           meal.user_id === props.currentUser?.id &&
                           <>
                       <StyledTableRow key={meal.name}>
                         <DeleteIcon
-                        onClick={(meal) => props.handleDelete(meal.id)}
-                        meals={meals}
-                        handleDelete={handleDelete}
+                        meal={meal}
+                        handleDelete={props.handleDelete}
                         currentUser={props.currentUser}
                          />
                         <StyledTableCell component="th" scope="row">
@@ -100,7 +81,10 @@ export default function LunchTable(props) {
                         <StyledTableCell align="center">{meal.carbs}</StyledTableCell>
                         <StyledTableCell align="center">{meal.fats}</StyledTableCell>
                         <StyledTableCell align="center">{meal.calories}</StyledTableCell>
-                        <EditMealModal className='editIcon'/>
+                        <EditMealModal
+                        handleUpdate={props.handleUpdate}
+                        meal={meal}
+                        className='editIcon'/>
                        </StyledTableRow>
                        </>
                        }

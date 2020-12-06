@@ -82,7 +82,11 @@ export default function AddBreakfastModal(props) {
         <Fade in={open}>
           <div className={classes.paper}>
             <h2 className="transition-modal-title">What was for breakfast?</h2>
-            <form className='sign-up-form'>
+            <form className='sign-up-form' onSubmit={(e) => {
+              e.preventDefault();
+              props.handleCreate(formData);
+              handleClose();
+            }}>
                  <input meals={meals} handleCreate={handleCreate} name='name' type='text' className='sign-up-input' placeholder="Meal" value={formData.name} onChange={handleChange} />
                  <br/>
                  <input meals={meals} handleCreate={handleCreate} name='protein' type='text' className='sign-up-input' placeholder="Protein(g)" value={formData.protein} onChange={handleChange}/>
@@ -93,7 +97,7 @@ export default function AddBreakfastModal(props) {
                  <br/>
                  <input meals={meals} handleCreate={handleCreate} name='calories' type='text' className='sign-up-input' placeholder="Calories" value={formData.calories} onChange={handleChange}/>
                  <br/>
-                 <button type="button" className='save-changes-button' onClick={handleClose}>Add Meal</button>
+                 <button type="submit" className='save-changes-button'>Add Meal</button>
              </form>
           </div>
         </Fade>
