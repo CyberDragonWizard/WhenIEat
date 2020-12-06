@@ -35,11 +35,23 @@ const StyledTableCell = withStyles((theme) => ({
   
   const useStyles = makeStyles({
     table: {
+      '@media(max-width: 1025px)': {
+        width: '600px',
+      },
+      '@media(max-width: 700px)': {
+        width: '400px',
+      }
     },
     tableContainer: {
         boxShadow: '0 0 3px 3px rgba(0, 0, 0, 0.573)',
         maxHeight: '300px',
         marginRight: '100px',
+        '@media(max-width: 1175px)': {
+          width: '600px',
+        },
+        '@media(max-width: 700px)': {
+          width: '400px',
+        }
     },
   });
 

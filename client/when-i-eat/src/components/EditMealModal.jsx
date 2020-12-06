@@ -38,9 +38,9 @@ export default function EditMealModal(props) {
 
   useEffect(() => {
     const prefillForm = () => {
-      const {name, calories, protein, carbs, fats} = props.meal
+      const {name, protein, carbs, fats, calories} = props.meal
       setFormData({
-        name, calories, protein, carbs, fats
+        name, protein, carbs, fats, calories
       })
     }
      if (props.meal) {
@@ -91,15 +91,15 @@ export default function EditMealModal(props) {
                 props.handleUpdate(props.meal.id, formData);
                 handleClose();
             }}>
-                 <input name='name' type='text' className='sign-up-input' placeholder="Meal" value={formData.name} onChange={handleChange}></input>
+                 <input name='name' type='text' className='sign-up-input' placeholder="Meal" value={formData.name} onChange={handleChange}/>
                  <br/>
-                 <input name='calories' type='text' className='sign-up-input' placeholder="Calories" value={formData.calories} onChange={handleChange}></input>
+                 <input name='protein' type='text' className='sign-up-input' placeholder="Protein" value={formData.protein} onChange={handleChange}/>
                  <br/>
-                 <input name='protein' type='text' className='sign-up-input' placeholder="Protein" value={formData.protein} onChange={handleChange}></input>
+                 <input name='carbs' type='text' className='sign-up-input' placeholder="Protein" value={formData.carbs} onChange={handleChange}/>
                  <br/>
-                 <input name='carbs' type='text' className='sign-up-input' placeholder="Carbs(g)" value={formData.carbs} onChange={handleChange}></input>
+                 <input name='fats' type='text' className='sign-up-input' placeholder="Carbs(g)" value={formData.fats} onChange={handleChange}/>
                  <br/>
-                 <input name='fats' type='text' className='sign-up-input' placeholder="Fats(g)" value={formData.fats} onChange={handleChange}></input>
+                 <input name='calories' type='text' className='sign-up-input' placeholder="Fats(g)" value={formData.calories} onChange={handleChange}/>
                  <br/>
                  <button type="submit" className='save-changes-button'>Save Changes</button>
              </form>
