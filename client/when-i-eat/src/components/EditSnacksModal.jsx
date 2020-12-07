@@ -44,7 +44,7 @@ export default function EditSnacksModal(props) {
      if (props.meal) {
        prefillForm()
      }
-  }, [])
+  }, [props.meal])
 
   const handleChange = (e) => {
     const { name, value } = e.target;

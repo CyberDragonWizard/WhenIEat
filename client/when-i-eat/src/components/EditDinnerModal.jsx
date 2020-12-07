@@ -44,7 +44,7 @@ export default function EditDinnerModal(props) {
      if (props.meal) {
        prefillForm()
      }
-  }, [])
+  }, [props.meal])
 
   const handleChange = (e) => {
     const { name, value } = e.target;
