@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { useParams, useHistory } from 'react-router-dom';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import EditIcon from './EditIcon';
-import { putMeal } from '../services/meals'
 import './EditMealModal.css'
 
 const useStyles = makeStyles((theme) => ({
@@ -27,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function EditMealModal(props) {
+export default function EditLunchModal(props) {
   const [formData, setFormData] = useState({
     name: '',
     calories: null,
