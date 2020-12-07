@@ -1,5 +1,5 @@
 class Day < ApplicationRecord
   belongs_to :user
-  has_and_belongs_to_many :meals
+  has_many :meals
   
 end
