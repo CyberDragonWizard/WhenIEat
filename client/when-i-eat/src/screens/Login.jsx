@@ -3,7 +3,6 @@ import Footer from '../shared/Footer';
 import Header from '../shared/Header';
 import SignUpModal from '../components/SignUpModal'
 import LogoImg from '../Assets/logo.png';
-import { NavLink } from 'react-router-dom';
 import './Login.css';
 
 function Login(props) {
