@@ -1,8 +1,8 @@
 import React from 'react';
 import BreakfastTable from '../components/BreakfastTable';
-// import LunchTable from '../components/LunchTable';
-// import DinnerTable from '../components/DinnerTable';
-// import SnacksTable from '../components/SnacksTable';
+import LunchTable from '../components/LunchTable';
+import DinnerTable from '../components/DinnerTable';
+import SnacksTable from '../components/SnacksTable';
 import HomeFooter from '../shared/HomeFooter';
 import Header from '../shared/Header';
 import LogoImg from '../Assets/logo.png';
@@ -10,9 +10,9 @@ import Navbar from '../shared/Navbar';
 import DateMenu from '../components/DateMenu';
 import AddDateModal from '../components/AddDateModal';
 import AddBreakfastModal from '../components/AddBreakfastModal';
-// import AddLunchModal from '../components/AddLunchModal';
-// import AddDinnerModal from '../components/AddDinnerModal';
-// import AddSnacksModal from '../components/AddSnacksModal';
+import AddLunchModal from '../components/AddLunchModal';
+import AddDinnerModal from '../components/AddDinnerModal';
+import AddSnacksModal from '../components/AddSnacksModal';
 import './Home.css';
 
 
@@ -44,7 +44,7 @@ function Home(props) {
                 />
               </div>
 
-              {/* <div className='other-table-div'>
+              <div className='other-table-div'>
                 <AddLunchModal
                 handleCreate={props.handleCreate}
                  />
@@ -78,7 +78,7 @@ function Home(props) {
                 setEditingId={props.setEditingId}
                 handleUpdate={props.handleUpdate}
                 />
-              </div> */}
+              </div>
             </div>
 
             <Navbar />
