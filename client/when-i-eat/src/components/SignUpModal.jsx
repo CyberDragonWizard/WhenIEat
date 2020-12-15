@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-import MoreInfoModal from './MoreInfoModal'
 import './SignUpModal.css'
 
 const useStyles = makeStyles((theme) => ({
@@ -21,14 +20,18 @@ const useStyles = makeStyles((theme) => ({
     width: '600px',
     marginBottom: '2%',
     position: 'fixed',
-    height: '400px'
+    height: '530px'
   },
 }));
 
 export default function SignUpModal(props) {
   const [formData, setFormData] = useState({
     email: "",
-    password: ""
+    password: "",
+    name: "",
+    age: null,
+    weight: null,
+    height: null,
   })
 
   const handleChange = (e) => {
@@ -70,7 +73,10 @@ export default function SignUpModal(props) {
         <Fade in={open}>
           <div className={classes.paper}>
             <h2 className="transition-modal-title">Sign Up!</h2>
-            <form className='sign-up-form'>
+            <form className='sign-up-form' onSubmit={(e) => {
+            e.preventDefault();
+            props.handleRegister(formData);
+            }}>
                  <input 
                  name='email' 
                  type='text' 
@@ -78,7 +84,6 @@ export default function SignUpModal(props) {
                  placeholder='Email' 
                  value={formData.email} 
                  onChange={handleChange} />
-                 <br/>
                  <input 
                  name='password' 
                  type='password' 
@@ -86,7 +91,35 @@ export default function SignUpModal(props) {
                  placeholder='Password' 
                  value={formData.password} 
                  onChange={handleChange} />
-                 <MoreInfoModal />
+                 <input 
+                 name='name' 
+                 type='text' 
+                 className='sign-up-input' 
+                 placeholder='First and Last Name' 
+                 value={formData.name} 
+                 onChange={handleChange} />
+                 <input 
+                 name='age' 
+                 type='text' 
+                 className='sign-up-input' 
+                 placeholder='Age' 
+                 value={formData.age} 
+                 onChange={handleChange} />
+                 <input 
+                 name='weight' 
+                 type='text' 
+                 className='sign-up-input' 
+                 placeholder='Weight(lbs)' 
+                 value={formData.weight} 
+                 onChange={handleChange} />
+                 <input 
+                 name='height' 
+                 type='text' 
+                 className='sign-up-input' 
+                 placeholder='Height(in)' 
+                 value={formData.height} 
+                 onChange={handleChange} />
+                 <button type="submit" className='register-button' onClick={handleClose}>Register</button>
              </form>
           </div>
         </Fade>

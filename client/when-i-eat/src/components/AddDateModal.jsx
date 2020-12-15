@@ -80,8 +80,8 @@ export default function AddDateModal() {
           <div className={classes.paper}>
             <h2 className="transition-modal-title">Add a Day.</h2>
             <form className='sign-up-form'>
-                 <input days={days} onChange={handleChange} handleCreate={handleCreate} value={dayData.name} type='text' className='sign-up-input' placeholder="Today's Date"></input>
-                 <button type="button" className='add-date-button' onClick={handleClose}>Add</button>
+                 <input days={days} onChange={handleChange} handleCreate={handleCreate} name='date' value={dayData.date} type='text' className='sign-up-input' placeholder="Today's Date"></input>
+                 <button type="sumbit" className='add-date-button'>Add</button>
              </form>
           </div>
         </Fade>

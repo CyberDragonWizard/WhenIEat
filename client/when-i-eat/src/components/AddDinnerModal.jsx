@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     width: '600px',
     marginBottom: '2%',
     position: 'fixed',
-    height: '510px'
+    height: '550px'
   },
 }));
 

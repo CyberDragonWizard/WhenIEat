@@ -27,11 +27,15 @@ export default function Navbar(props) {
                     :
                     <div></div>
                 }
+                {
+                    currentUser &&
+                    <>
+                    </>
+                }
                 </div>
             </div>
             <hr className='nav-line'/>
             <div className='nav-button-div'>
-              
 
                 <NavLink to='/home'>
                     <button type='submit' className='nav-button'>Enter Calories</button>
@@ -40,7 +44,7 @@ export default function Navbar(props) {
                 <NavLink to='/stats'>
                     <button type='submit' className='nav-button'>View Stats</button>
                 </NavLink>
-            
+
             </div>   
         </div>
     )

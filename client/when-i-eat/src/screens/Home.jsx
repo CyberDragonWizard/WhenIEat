@@ -21,7 +21,8 @@ function Home(props) {
 
     return (
         <div>
-            <Header />
+            <Header 
+            />
             <img className='header-logo-home' src={LogoImg} alt='logo' height='110' width='110' />
             <div className='table-div'>
       
@@ -81,7 +82,10 @@ function Home(props) {
               </div>
             </div>
 
-            <Navbar />
+            <Navbar
+            currentuser={props.currentUser}
+             />
+             {props.children}
             <HomeFooter /> 
 
         </div>

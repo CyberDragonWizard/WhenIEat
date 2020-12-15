@@ -25,7 +25,7 @@ function Login(props) {
             <img className='header-logo-landing' src={LogoImg} alt='logo' height='110' width='110' />
             <div className='log-in-body'>
              <h2 className='welcome'>Welcome!</h2>
-             <h3 className='welcome-message'>WhenIEat is an easy to use nutrition application <br/> for you to track your calories.</h3>
+             <h3 className='welcome-message'>WhenIEat is an easy to use nutrition application <br/> for you to track your meals.</h3>
              <h2 className='log-in'>Log In</h2>
              <form onSubmit={(e) => {
                  e.preventDefault();
@@ -50,13 +50,13 @@ function Login(props) {
                  />
                  <br/>
                  <div className='button-div'>
-                 {/* <NavLink to='/home'> */}
                     <button type='submit' className='button'>Log In</button>
-                 {/* </NavLink> */}
                  </div>
              </form>
              <h3 className='welcome-message'>Or</h3>
-             <SignUpModal />
+             <SignUpModal
+             handleRegister={props.handleRegister}
+              />
             <Footer />
             </div>
         </div>
