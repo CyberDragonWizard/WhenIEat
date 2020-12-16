@@ -97,7 +97,9 @@ export default function DateMenu(props) {
         {days.map((day) => (
         <StyledMenuItem >
           <ListItemText 
-            
+            onClick={() => {
+              props.setCurrentDay(day)
+            }}
             align='center'>{day.date}
           </ListItemText>
         </StyledMenuItem>

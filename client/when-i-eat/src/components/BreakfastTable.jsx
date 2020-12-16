@@ -43,6 +43,7 @@ const StyledTableCell = withStyles((theme) => ({
       }
     },
     tableContainer: {
+      width: '700px',
         boxShadow: '0 0 3px 3px rgba(0, 0, 0, 0.573)',
         maxHeight: '300px',
         marginRight: '100px',
